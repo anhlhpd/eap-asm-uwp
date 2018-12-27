@@ -32,5 +32,35 @@ namespace Client.Services
             var response = httpClient.PostAsync(API_STUDENT_INFOR + id, content);
             return response.Result;
         }
+        public async static Task<HttpResponseMessage> Get_Subject_Infor(int id)
+        {
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await storageFolder.GetFileAsync("token.txt");
+            string json = await FileIO.ReadTextAsync(file);
+            JsonValue jsonValue = JsonValue.Parse(json);
+            string token = jsonValue.GetObject().GetNamedString("token");
+            Debug.WriteLine(token);
+
+            HttpClient httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
+            var content = new StringContent("");
+            var response = httpClient.PostAsync(API_STUDENT_INFOR + id, content);
+            return response.Result;
+        }
+        public async static Task<HttpResponseMessage> Get_Student_Class_Infor(int id)
+        {
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await storageFolder.GetFileAsync("token.txt");
+            string json = await FileIO.ReadTextAsync(file);
+            JsonValue jsonValue = JsonValue.Parse(json);
+            string token = jsonValue.GetObject().GetNamedString("token");
+            Debug.WriteLine(token);
+
+            HttpClient httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
+            var content = new StringContent("");
+            var response = httpClient.PostAsync(API_STUDENT_INFOR + id, content);
+            return response.Result;
+        }
     }
 }
