@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -39,6 +40,8 @@ namespace Client.Views
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
+            ContentFrame.Navigated += On_Navigated;
+            NavView.SelectedItem = NavView.MenuItems[0];
             NavView_Navigate("GeneralInformation");
             NavView.SelectedItem = NavView.MenuItems
                     .OfType<NavigationViewItem>()

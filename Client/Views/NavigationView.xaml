@@ -44,8 +44,8 @@
                 <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
                 <NavigationViewItemHeader x:Name="MainPagesHeader"
                                            Content="Main pages"/>
-                <NavigationViewItem Content="General Information" x:Name="GeneralInformation"
-                                    Tag="MyAccount" Icon="Admin" />
+                <NavigationViewItem Content="GeneralInformation" x:Name="GeneralInformation"
+                                    Tag="GeneralInformation" Icon="Admin" />
             </NavigationView.MenuItems>
 
             <Frame x:Name="ContentFrame">
