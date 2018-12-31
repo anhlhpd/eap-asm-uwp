@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Client.NavigationView"
+    x:Class="Client.Views.NavigationView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Client"
@@ -8,6 +8,7 @@
     mc:Ignorable="d"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:Windows10FallCreatorsUpdate="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 5)"
+    xmlns:Windows10version1803="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 6)"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -26,9 +27,10 @@
         </VisualStateManager.VisualStateGroups>
 
         <Windows10FallCreatorsUpdate:NavigationView x:Name="NavView"
-            CompactModeThresholdWidth="0" ExpandedModeThresholdWidth="50"
+            CompactModeThresholdWidth="280" ExpandedModeThresholdWidth="2500"
                 Loaded="NavView_Loaded" ItemInvoked="NavView_ItemInvoked"
-                     IsSettingsVisible="True">
+                     IsSettingsVisible="True" Windows10version1803:IsBackButtonVisible="Collapsed"
+                        OpenPaneLength="300" IsPaneOpen="False">
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox x:Name="SearchBox" QueryIcon="Find"/>
             </NavigationView.AutoSuggestBox>
