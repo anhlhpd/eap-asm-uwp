@@ -21,6 +21,12 @@
 
                     <VisualState.Setters>
                         <Setter Target="NavView.PaneDisplayMode" Value="Top"/>
+                        <!-- Remove the next 3 lines for left-only navigation. -->
+                        <Setter Target="NavView.PaneDisplayMode" Value="Top"/>
+                        <Setter Target="NavViewSearchBox.Width" Value="200"/>
+                        <Setter Target="MainPagesHeader.Visibility" Value="Collapsed"/>
+                        <!-- Leave the next line for left-only navigation. -->
+                        <Setter Target="ContentFrame.Padding" Value="24,0,24,24"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -30,16 +36,15 @@
             CompactModeThresholdWidth="280" ExpandedModeThresholdWidth="2500"
                 Loaded="NavView_Loaded" ItemInvoked="NavView_ItemInvoked"
                      IsSettingsVisible="True" Windows10version1803:IsBackButtonVisible="Collapsed"
-                        OpenPaneLength="300" IsPaneOpen="False">
+                        OpenPaneLength="300" IsPaneOpen="True">
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox x:Name="SearchBox" QueryIcon="Find"/>
             </NavigationView.AutoSuggestBox>
             <NavigationView.MenuItems>
-                <NavigationViewItem x:Name="ListSong" Content="List Song"
-                                    Tag="ListSong" Icon="Library"/>
-                <NavigationViewItem x:Name="MySong" Content="My Song"
-                                    Tag="MySong" Icon="Audio"/>
-                <NavigationViewItem Content="My Account" x:Name="MyAccount"
+                <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
+                <NavigationViewItemHeader x:Name="MainPagesHeader"
+                                           Content="Main pages"/>
+                <NavigationViewItem Content="General Information" x:Name="GeneralInformation"
                                     Tag="MyAccount" Icon="Admin" />
             </NavigationView.MenuItems>
 

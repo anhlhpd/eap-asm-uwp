@@ -11,22 +11,22 @@
     <Grid>
         <ScrollViewer>
             <StackPanel x:Name="ParentStackPanel" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image Source="/Assets/LogoMusicBox.png" Margin="10, 0, 0, 5" Width="50px" Height="50px" HorizontalAlignment="Center"/>
                 <TextBlock Text="FPT Student App" TextAlignment="Center" FontSize="35px"/>
 
                 <RelativePanel>
-                    <TextBox x:Name="Username" Header="Username" Margin="0, 30, 0, 0" HorizontalAlignment="Center" Text="" VerticalAlignment="Top" Width="293"/>
+                    <TextBox x:Name="Username" Header="Username" Margin="0, 30, 0, 0"
+                             HorizontalAlignment="Center" Text="" VerticalAlignment="Top" Width="293"/>
                     <TextBlock x:Name="username" RelativePanel.Below="Username" Foreground="Red"></TextBlock>
                 </RelativePanel>
 
                 <RelativePanel>
-                    <PasswordBox x:Name="Password" Header="Password" Margin="0, 30, 0, 0" Width="293" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <PasswordBox x:Name="Password" Header="Password" Margin="0, 30, 0, 0"
+                                 Width="293" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     <TextBlock x:Name="password" RelativePanel.Below="Password" Foreground="Red"></TextBlock>
                 </RelativePanel>
 
                 <RelativePanel HorizontalAlignment="Center" Margin="0, 30, 0, 0">
                     <Button x:Name="BtnLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                    <Button x:Name="BtnRegister" RelativePanel.RightOf="BtnLogin" Margin="30, 0, 0, 0" Content="Register" VerticalAlignment="Top"/>
                 </RelativePanel>
             </StackPanel>
         </ScrollViewer>

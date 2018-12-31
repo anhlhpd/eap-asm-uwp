@@ -28,7 +28,7 @@ namespace Client.Views
         
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
             {
-                ("MyAccount", typeof(MyAccount))
+                ("GeneralInformation", typeof(GeneralInformation))
             };
 
 
@@ -39,10 +39,10 @@ namespace Client.Views
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
-            NavView_Navigate("MyAccount");
+            NavView_Navigate("GeneralInformation");
             NavView.SelectedItem = NavView.MenuItems
                     .OfType<NavigationViewItem>()
-                    .First(n => n.Tag.Equals("MyAccount"));
+                    .First(n => n.Tag.Equals("GeneralInformation"));
             NavView.IsPaneOpen = false;
 
             var altLeft = new KeyboardAccelerator

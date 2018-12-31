@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Client.Views.MyAccount"
+    x:Class="Client.Views.GeneralInformation"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Client.Views"
@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Margin="0, 0, 0, 10">
-                <GridViewHeaderItem Content="My Account" FontSize="30" FontWeight="Bold"/>
+                <GridViewHeaderItem Content="General Information" FontSize="30" FontWeight="Bold"/>
                 <TextBlock TextWrapping="Wrap" Text="Personal Information" />
             </StackPanel>
 
