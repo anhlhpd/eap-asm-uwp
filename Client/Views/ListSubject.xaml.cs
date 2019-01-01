@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Client.Entity;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,6 +24,8 @@ namespace Client.Views
     /// </summary>
     public sealed partial class ListSubject : Page
     {
+        private ObservableCollection<Subject> listAllSubject;
+        internal ObservableCollection<Subject> ListAllSubject { get => listAllSubject; set => listAllSubject = value; }
         public ListSubject()
         {
             this.InitializeComponent();
