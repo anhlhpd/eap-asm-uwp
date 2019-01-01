@@ -44,8 +44,12 @@
                 <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
                 <NavigationViewItemHeader x:Name="MainPagesHeader"
                                            Content="Main pages"/>
+                <NavigationViewItem Content="ListClass" x:Name="ListClass"
+                                    Tag="ListClass" Icon="Calendar" />
+                <NavigationViewItem Content="ListSubject" x:Name="ListSubject"
+                                    Tag="ListSubject" Icon="Page2" />
                 <NavigationViewItem Content="GeneralInformation" x:Name="GeneralInformation"
-                                    Tag="GeneralInformation" Icon="Admin" />
+                                    Tag="GeneralInformation" Icon="Contact" />
             </NavigationView.MenuItems>
 
             <Frame x:Name="ContentFrame">
