@@ -29,7 +29,9 @@ namespace Client.Views
         
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
             {
-                ("GeneralInformation", typeof(GeneralInformation))
+                ("GeneralInformation", typeof(GeneralInformation)),
+                ("ListClass", typeof(ListClass)),
+                ("ListSubject", typeof(ListSubject))
             };
 
 
