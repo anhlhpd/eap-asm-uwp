@@ -11,7 +11,7 @@
     <AssemblyName>Client</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -95,45 +95,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Account.cs" />
-    <Compile Include="Entities\GeneralInformation.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="obj\ARM\Debug\App.g.cs" />
-    <Compile Include="obj\ARM\Debug\App.g.i.cs" />
-    <Compile Include="obj\ARM\Debug\MainPage.g.cs" />
-    <Compile Include="obj\ARM\Debug\MainPage.g.i.cs" />
-    <Compile Include="obj\ARM\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\ARM\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\ARM\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="obj\ARM\Debug\Views\GeneralInformation.g.cs" />
-    <Compile Include="obj\ARM\Debug\Views\GeneralInformation.g.i.cs" />
-    <Compile Include="obj\ARM\Debug\Views\Login.g.cs" />
-    <Compile Include="obj\ARM\Debug\Views\Login.g.i.cs" />
-    <Compile Include="obj\ARM\Debug\Views\NavigationView.g.cs" />
-    <Compile Include="obj\ARM\Debug\Views\NavigationView.g.i.cs" />
-    <Compile Include="obj\ARM\Debug\Views\SettingsPage.g.cs" />
-    <Compile Include="obj\ARM\Debug\Views\SettingsPage.g.i.cs" />
-    <Compile Include="obj\ARM\Debug\XamlTypeInfo.g.cs" />
-    <Compile Include="obj\x86\Debug\App.g.cs" />
-    <Compile Include="obj\x86\Debug\App.g.i.cs" />
-    <Compile Include="obj\x86\Debug\MainPage.g.cs" />
-    <Compile Include="obj\x86\Debug\MainPage.g.i.cs" />
-    <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="obj\x86\Debug\Views\GeneralInformation.g.cs" />
-    <Compile Include="obj\x86\Debug\Views\GeneralInformation.g.i.cs" />
-    <Compile Include="obj\x86\Debug\Views\Login.g.cs" />
-    <Compile Include="obj\x86\Debug\Views\Login.g.i.cs" />
-    <Compile Include="obj\x86\Debug\Views\NavigationView.g.cs" />
-    <Compile Include="obj\x86\Debug\Views\NavigationView.g.i.cs" />
-    <Compile Include="obj\x86\Debug\Views\SettingsPage.g.cs" />
-    <Compile Include="obj\x86\Debug\Views\SettingsPage.g.i.cs" />
-    <Compile Include="obj\x86\Debug\XamlTypeInfo.g.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\APIHandle.cs" />
     <Compile Include="Views\GeneralInformation.xaml.cs">
       <DependentUpon>GeneralInformation.xaml</DependentUpon>
     </Compile>
@@ -152,221 +117,8 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Client_TemporaryKey.pfx" />
-    <None Include="obj\ARM\Debug\.winmd_cache\%24Microsoft.UI.Xaml.Markup.winmd_636758300200000000.json" />
-    <None Include="obj\ARM\Debug\App.xbf" />
-    <None Include="obj\ARM\Debug\Client.csproj.CopyComplete" />
-    <None Include="obj\ARM\Debug\Client.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\ARM\Debug\Client.csprojAssemblyReference.cache" />
-    <None Include="obj\ARM\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\ARM\Debug\embed\embed.resfiles" />
-    <None Include="obj\ARM\Debug\embed\embed.resfiles.intermediate" />
-    <None Include="obj\ARM\Debug\excluded.layout.resfiles" />
-    <None Include="obj\ARM\Debug\excluded.layout.resfiles.intermediate" />
-    <None Include="obj\ARM\Debug\filtered.layout.resfiles" />
-    <None Include="obj\ARM\Debug\filtered.layout.resfiles.intermediate" />
-    <None Include="obj\x86\Debug\.winmd_cache\%24Microsoft.UI.Xaml.Markup.winmd_636758300200000000.json" />
-    <None Include="obj\x86\Debug\App.g.cs.backup" />
-    <None Include="obj\x86\Debug\App.xbf" />
-    <None Include="obj\x86\Debug\Client.csproj.CopyComplete" />
-    <None Include="obj\x86\Debug\Client.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\x86\Debug\Client.csprojAssemblyReference.cache" />
-    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\x86\Debug\embed\embed.resfiles" />
-    <None Include="obj\x86\Debug\embed\embed.resfiles.intermediate" />
-    <None Include="obj\x86\Debug\excluded.layout.resfiles" />
-    <None Include="obj\x86\Debug\excluded.layout.resfiles.intermediate" />
-    <None Include="obj\x86\Debug\filtered.layout.resfiles" />
-    <None Include="obj\x86\Debug\filtered.layout.resfiles.intermediate" />
-    <None Include="obj\x86\Debug\MainPage.g.cs.backup" />
-    <None Include="obj\x86\Debug\MainPage.xbf" />
-    <None Include="obj\x86\Debug\pri.resfiles" />
-    <None Include="obj\x86\Debug\pri.resfiles.intermediate" />
-    <None Include="obj\x86\Debug\priconfig.xml.intermediate" />
-    <None Include="obj\x86\Debug\qualifiers.txt.intermediate" />
-    <None Include="obj\x86\Debug\ResourceHandlingTask.state" />
-    <None Include="obj\x86\Debug\resources.resfiles" />
-    <None Include="obj\x86\Debug\resources.resfiles.intermediate" />
-    <None Include="obj\x86\Debug\unfiltered.layout.resfiles" />
-    <None Include="obj\x86\Debug\unfiltered.layout.resfiles.intermediate" />
-    <None Include="obj\x86\Debug\XamlTypeInfo.g.cs.backup" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Xml.XmlSerializer.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Xml.XmlDocument.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Xml.XDocument.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Xml.ReaderWriter.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.ValueTuple.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Threading.Tasks.Parallel.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Threading.Tasks.Dataflow.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Threading.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Threading.Overlapped.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Text.RegularExpressions.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Text.Encoding.CodePages.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Security.Cryptography.X509Certificates.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Security.Cryptography.Primitives.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Security.Cryptography.Encoding.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Security.Cryptography.Cng.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Security.Cryptography.Algorithms.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Security.Claims.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Runtime.WindowsRuntime.UI.Xaml.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Runtime.WindowsRuntime.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Runtime.Serialization.Primitives.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Runtime.Serialization.Formatters.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Runtime.Numerics.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Runtime.InteropServices.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Runtime.InteropServices.RuntimeInformation.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Runtime.Extensions.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Reflection.Metadata.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Reflection.DispatchProxy.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Private.Uri.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Private.ServiceModel.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Private.DataContractSerialization.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.ObjectModel.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Numerics.Vectors.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.WebSockets.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.WebSockets.Client.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.WebHeaderCollection.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.Sockets.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.Requests.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.Primitives.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.NetworkInformation.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.NameResolution.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Net.Http.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Linq.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Linq.Queryable.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Linq.Parallel.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Linq.Expressions.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.IO.UnmanagedMemoryStream.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.IO.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.IO.IsolatedStorage.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.IO.FileSystem.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.IO.Compression.ZipFile.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.IO.Compression.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Globalization.Extensions.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Dynamic.Runtime.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Diagnostics.Debug.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Data.Common.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Console.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.ComponentModel.TypeConverter.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.ComponentModel.Primitives.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.ComponentModel.EventBasedAsync.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.ComponentModel.Annotations.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Collections.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Collections.Specialized.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Collections.NonGeneric.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Collections.Immutable.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Collections.Concurrent.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.System.Buffers.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.Microsoft.VisualBasic.SR.resw" />
-    <PRIResource Include="obj\x86\Debug\FxResources.Microsoft.CSharp.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.Microsoft.CSharp.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.Microsoft.VisualBasic.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Buffers.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Collections.Concurrent.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Collections.Immutable.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Collections.NonGeneric.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Collections.Specialized.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Collections.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.ComponentModel.Annotations.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.ComponentModel.EventBasedAsync.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.ComponentModel.Primitives.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.ComponentModel.TypeConverter.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Console.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Data.Common.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Diagnostics.Debug.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Dynamic.Runtime.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Globalization.Extensions.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.IO.Compression.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.IO.Compression.ZipFile.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.IO.FileSystem.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.IO.IsolatedStorage.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.IO.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.IO.UnmanagedMemoryStream.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Linq.Expressions.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Linq.Parallel.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Linq.Queryable.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Linq.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.Http.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.NameResolution.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.NetworkInformation.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.Primitives.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.Requests.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.Sockets.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.WebHeaderCollection.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.WebSockets.Client.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Net.WebSockets.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Numerics.Vectors.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.ObjectModel.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Private.DataContractSerialization.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Private.ServiceModel.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Private.Uri.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Reflection.DispatchProxy.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Reflection.Metadata.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Runtime.Extensions.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Runtime.InteropServices.RuntimeInformation.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Runtime.InteropServices.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Runtime.Numerics.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Runtime.Serialization.Formatters.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Runtime.Serialization.Primitives.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Runtime.WindowsRuntime.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Runtime.WindowsRuntime.UI.Xaml.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Security.Claims.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Security.Cryptography.Algorithms.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Security.Cryptography.Cng.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Security.Cryptography.Encoding.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Security.Cryptography.Primitives.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Security.Cryptography.X509Certificates.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Text.Encoding.CodePages.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Text.RegularExpressions.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Threading.Overlapped.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Threading.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Threading.Tasks.Dataflow.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Threading.Tasks.Parallel.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.ValueTuple.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Xml.ReaderWriter.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Xml.XDocument.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Xml.XmlDocument.SR.resw" />
-    <PRIResource Include="obj\ARM\Debug\FxResources.System.Xml.XmlSerializer.SR.resw" />
-    <None Include="obj\ARM\Debug\MainPage.xbf" />
-    <None Include="obj\ARM\Debug\pri.resfiles" />
-    <None Include="obj\ARM\Debug\pri.resfiles.intermediate" />
-    <None Include="obj\ARM\Debug\priconfig.xml.intermediate" />
-    <None Include="obj\ARM\Debug\qualifiers.txt.intermediate" />
-    <None Include="obj\ARM\Debug\ResourceHandlingTask.state" />
-    <None Include="obj\ARM\Debug\resources.resfiles" />
-    <None Include="obj\ARM\Debug\resources.resfiles.intermediate" />
-    <None Include="obj\ARM\Debug\unfiltered.layout.resfiles" />
-    <None Include="obj\ARM\Debug\unfiltered.layout.resfiles.intermediate" />
-    <None Include="obj\ARM\Debug\Views\GeneralInformation.xbf" />
-    <None Include="obj\ARM\Debug\Views\Login.xbf" />
-    <None Include="obj\ARM\Debug\Views\NavigationView.xbf" />
-    <None Include="obj\ARM\Debug\Views\SettingsPage.xbf" />
-    <None Include="obj\Client.csproj.nuget.cache" />
-    <None Include="obj\Client.csproj.nuget.g.props" />
-    <None Include="obj\Client.csproj.nuget.g.targets" />
-    <None Include="obj\project.assets.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="obj\ARM\Debug\Client.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\ARM\Debug\Client.exe" />
-    <Content Include="obj\ARM\Debug\Client.pdb" />
-    <Content Include="obj\ARM\Debug\Client.xr.xml" />
-    <Content Include="obj\ARM\Debug\intermediatexaml\Client.exe" />
-    <Content Include="obj\ARM\Debug\intermediatexaml\Client.pdb" />
-    <Content Include="obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt" />
-    <Content Include="obj\ARM\Debug\priconfig.xml" />
-    <Content Include="obj\ARM\Debug\ProjectArchitectures.txt" />
-    <Content Include="obj\ARM\Debug\qualifiers.txt" />
-    <Content Include="obj\ARM\Debug\XamlSaveStateFile.xml" />
-    <Content Include="obj\x86\Debug\Client.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\x86\Debug\Client.exe" />
-    <Content Include="obj\x86\Debug\Client.pdb" />
-    <Content Include="obj\x86\Debug\Client.xr.xml" />
-    <Content Include="obj\x86\Debug\intermediatexaml\Client.exe" />
-    <Content Include="obj\x86\Debug\intermediatexaml\Client.pdb" />
-    <Content Include="obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt" />
-    <Content Include="obj\x86\Debug\priconfig.xml" />
-    <Content Include="obj\x86\Debug\ProjectArchitectures.txt" />
-    <Content Include="obj\x86\Debug\qualifiers.txt" />
-    <Content Include="obj\x86\Debug\XamlSaveStateFile.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -382,38 +134,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="obj\ARM\Debug\App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="obj\ARM\Debug\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="obj\ARM\Debug\Views\GeneralInformation.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="obj\ARM\Debug\Views\Login.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="obj\ARM\Debug\Views\NavigationView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="obj\ARM\Debug\Views\SettingsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="obj\x86\Debug\App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="obj\x86\Debug\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -444,10 +164,6 @@
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="obj\ARM\Debug\TempPE\" />
-    <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
