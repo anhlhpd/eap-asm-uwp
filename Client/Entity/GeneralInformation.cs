@@ -39,4 +39,4 @@ namespace Client.Entities
         Other = 2
     }
 }
-}
+
