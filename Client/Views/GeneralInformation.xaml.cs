@@ -51,4 +51,5 @@ namespace Client.Views
                 Debug.WriteLine(genInfo.Gender);
             }
         }
+    } 
 }
