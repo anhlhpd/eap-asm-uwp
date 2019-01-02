@@ -15,9 +15,7 @@ namespace Client.Entities
             this.UpdatedAt = DateTime.Now;
             this.Status = AccountStatus.Active;
         }
-        [Key]
-        [Required]
-        public string Id { get; set; }
+        private string Id { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -34,5 +32,4 @@ namespace Client.Entities
         Active = 1,
         Deactive = 0
     }
-}
 }

@@ -42,13 +42,14 @@ namespace Client.Views
                 var response = await APIHandle.Get_Member_Infor();
                 var responseContent = await response.Content.ReadAsStringAsync();
                 GeneralInformation genInfo = JsonConvert.DeserializeObject<GeneralInformation>(responseContent.ToString());
-                this.Email.Text = genInfo.Email;
-                this.FirstName.Text = genInfo.FirstName;
-                this.LastName.Text = genInfo.LastName;
-                this.Phone.Text = genInfo.Phone;
-                this.Birthday.Text = genInfo.Birthday;
+                this.Email.Text = genInfo.Email.ToString();
+                this.FirstName.Text = genInfo.FirstName.ToString();
+                this.LastName.Text = genInfo.LastName.ToString();
+                this.Phone.Text = genInfo.Phone.ToString();
+                this.Birthday.Text = genInfo.Birthday.ToString();
                 this.Gender.SelectedValue = genInfo.Gender.ToString();
                 Debug.WriteLine(genInfo.Gender);
             }
         }
+    }
 }

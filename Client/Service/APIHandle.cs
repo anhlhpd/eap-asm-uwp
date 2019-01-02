@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Client.Service
 {
     class APIHandle
     {
+        private static string API_LOGIN = "https://localhost:44314/api/authentication/StudentLogin";
         private static string API_GENERAL_INFOR = "https://localhost:44134/api/GeneralInformations/";
 
         public async static Task<HttpResponseMessage> Get_Member_Infor()
@@ -30,5 +32,17 @@ namespace Client.Service
             return response.Result;
         }
 
+        public async static Task<HttpResponseMessage> Login(string username, string password)
+        {
+            Dictionary<String, String> memberLogin = new Dictionary<string, string>();
+            memberLogin.Add("username", username);
+            memberLogin.Add("password", password);
+            memberLogin.Add("clientId", "STU");
+            HttpClient httpClient = new HttpClient();
+            StringContent content = new StringContent(JsonConvert.SerializeObject(memberLogin), Encoding.UTF8, "application/json");
+            var response = httpClient.PostAsync(API_LOGIN, content);
+            Debug.WriteLine(response.Result);
+            return response.Result;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Client.Entity;
+﻿using Client.Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

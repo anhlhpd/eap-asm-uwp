@@ -43,7 +43,6 @@ namespace Client.Views
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
             ContentFrame.Navigated += On_Navigated;
-            NavView.SelectedItem = NavView.MenuItems[0];
             NavView_Navigate("GeneralInformation");
             NavView.SelectedItem = NavView.MenuItems
                     .OfType<NavigationViewItem>()

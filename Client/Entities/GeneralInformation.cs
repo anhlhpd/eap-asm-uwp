@@ -9,27 +9,19 @@ namespace Client.Entities
 {
     class GeneralInformation
     {
-        public GeneralInformation()
-        {
-            this.Gender = Gender.Other;
-        }
-        [Key]
-        public string AccountId { get; set; }
-        [Required(ErrorMessage = "Please enter first name"),
-            MaxLength(10, ErrorMessage = "Please enter first name under 11 characters")]
-        public string FirstName { get; set; }
-        [Required(ErrorMessage = "Please enter last name"),
-            MaxLength(10, ErrorMessage = "Please enter last name under 11 characters")]
-        public string LastName { get; set; }
-        [Required(ErrorMessage = "Please input birthday")]
-        public DateTime Birthday { get; set; }
-        [Required(ErrorMessage = "Please input gender")]
-        public Gender Gender { get; set; }
-        [Required(ErrorMessage = "Please enter phone"),
-            MinLength(10, ErrorMessage = "Please enter phone above 9 characters"),
-            MaxLength(12, ErrorMessage = "Please enter phone under 13 characters")]
-        public string Phone { get; set; }
-        public Account Account { get; set; }
+        private string _accountId;
+        private string _firstName;
+        private string _lastName;
+        private DateTime _birthday;
+        private Gender _gender;
+        private string _phone;
+
+        public string accountId { get => _accountId; set => _accountId = value; }
+        public string firstName { get => _firstName; set => _firstName = value; }
+        public string lastName { get => _lastName; set => _lastName = value; }
+        public string phone { get => _phone; set => _phone = value; }
+        public Gender gender { get => _gender; set => _gender = value; }
+        public DateTime birthday { get => _birthday; set => _birthday = value; }
     }
 
     public enum Gender
@@ -38,5 +30,4 @@ namespace Client.Entities
         Female = 1,
         Other = 2
     }
-}
 }
