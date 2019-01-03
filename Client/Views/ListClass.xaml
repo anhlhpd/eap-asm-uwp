@@ -13,7 +13,7 @@
         <ScrollViewer>
             <Grid>
                 <GridViewHeaderItem Content="List class" FontWeight="Bold"></GridViewHeaderItem>
-                <ListView ItemsSource="{x:Bind ListAllClass, Mode=TwoWay}" x:Name="MenuListAllSong">
+                <ListView ItemsSource="{x:Bind ListAllClazzes, Mode=TwoWay}" x:Name="MenuListAllSong">
                     <ListView.HeaderTemplate>
                         <DataTemplate>
                             <Grid Padding="12" Background="AliceBlue">

@@ -22,6 +22,7 @@ namespace Client.Views
         public ListClass()
         {
             this.InitializeComponent();
+
         }
         private async void Get_List_Subject()
         {
