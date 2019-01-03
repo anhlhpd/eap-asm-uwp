@@ -28,7 +28,7 @@ namespace Client.Views
             {
                 var response = await APIHandle.Get_Member_Infor();
                 var responseContent = await response.Content.ReadAsStringAsync();
-                GeneralInformation genInfo = JsonConvert.DeserializeObject<GeneralInformation>(responseContent.ToString());
+                GeneralInformation genInfo = JsonConvert.DeserializeObject<GeneralInformation>(responseContent);
                 this.Email.Text = genInfo.Email.ToString();
                 this.FirstName.Text = genInfo.FirstName.ToString();
                 this.LastName.Text = genInfo.LastName.ToString();
