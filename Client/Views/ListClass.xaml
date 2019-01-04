@@ -5,7 +5,7 @@
     xmlns:local="using:Client.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:entity="using:Client.Entity"
+    xmlns:entity="using:Client.Entities"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -13,7 +13,7 @@
         <ScrollViewer>
             <Grid>
                 <GridViewHeaderItem Content="List class" FontWeight="Bold"></GridViewHeaderItem>
-                <ListView ItemsSource="{x:Bind ListAllClass, Mode=TwoWay}" x:Name="MenuListAllSong">
+                <ListView ItemsSource="{x:Bind ListAllClazzes, Mode=TwoWay}" x:Name="MenuListAllSong">
                     <ListView.HeaderTemplate>
                         <DataTemplate>
                             <Grid Padding="12" Background="AliceBlue">

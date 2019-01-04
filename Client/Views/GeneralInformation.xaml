@@ -37,11 +37,7 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                     <TextBlock Text="Gender:" VerticalAlignment="Center"  Width="100"/>
-                                    <ComboBox x:Name="Gender" Width="200">
-                                        <ComboBoxItem Tag="2" >Other</ComboBoxItem>
-                                        <ComboBoxItem Tag="1">Male</ComboBoxItem>
-                                        <ComboBoxItem Tag="0">Female</ComboBoxItem>
-                                    </ComboBox>
+                                    <TextBlock x:Name="Gender" Width="250"/>
                                 </StackPanel>
                             </StackPanel>
                             <Button x:Name="BtnLogOut" Content="Log out"/>
@@ -72,9 +68,9 @@
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                 <TextBlock Text="Gender:" VerticalAlignment="Center"  Width="100"/>
                                 <ComboBox Width="200">
-                                    <ComboBoxItem Tag="2" >Other</ComboBoxItem>
+                                    <ComboBoxItem Tag="0">Other</ComboBoxItem>
                                     <ComboBoxItem Tag="1">Male</ComboBoxItem>
-                                    <ComboBoxItem Tag="0">Female</ComboBoxItem>
+                                    <ComboBoxItem Tag="2">Female</ComboBoxItem>
                                 </ComboBox>
                             </StackPanel>
                         </StackPanel>

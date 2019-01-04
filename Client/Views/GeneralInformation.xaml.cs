@@ -1,22 +1,10 @@
 ﻿using Client.Service;
+using Client.Entities;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,7 +15,6 @@ namespace Client.Views
     /// </summary>
     public sealed partial class GeneralInformation : Page
     {
-
         public GeneralInformation()
         {
             this.InitializeComponent();
@@ -41,14 +28,15 @@ namespace Client.Views
             {
                 var response = await APIHandle.Get_Member_Infor();
                 var responseContent = await response.Content.ReadAsStringAsync();
-                GeneralInformation genInfo = JsonConvert.DeserializeObject<GeneralInformation>(responseContent.ToString());
-                this.Email.Text = genInfo.Email;
-                this.FirstName.Text = genInfo.FirstName;
-                this.LastName.Text = genInfo.LastName;
-                this.Phone.Text = genInfo.Phone;
-                this.Birthday.Text = genInfo.Birthday;
-                this.Gender.SelectedValue = genInfo.Gender.ToString();
-                Debug.WriteLine(genInfo.Gender);
+                
+                Entities.GeneralInformation genInfo = JsonConvert.DeserializeObject<Entities.GeneralInformation>(responseContent);
+                this.Email.Text = genInfo.account.email;
+                this.FirstName.Text = genInfo.firstName;
+                this.LastName.Text = genInfo.lastName;
+                this.Phone.Text = genInfo.phone;
+                this.Birthday.Text = genInfo.birthday.ToString();
+                this.Gender.Text = genInfo.gender.ToString();
             }
         }
+    }
 }
