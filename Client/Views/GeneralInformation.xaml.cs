@@ -15,7 +15,6 @@ namespace Client.Views
     /// </summary>
     public sealed partial class GeneralInformation : Page
     {
-
         public GeneralInformation()
         {
             this.InitializeComponent();
@@ -36,8 +35,8 @@ namespace Client.Views
                 this.LastName.Text = genInfo.lastName;
                 this.Phone.Text = genInfo.phone;
                 this.Birthday.Text = genInfo.birthday.ToString();
-                this.Gender.SelectedValue = genInfo.gender;
-                //Debug.WriteLine(genInfo.gender);
+                this.Gender.Text = genInfo.gender.ToString();
+                Debug.WriteLine(genInfo.gender);
             }
         }
     }
