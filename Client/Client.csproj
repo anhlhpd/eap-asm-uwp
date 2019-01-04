@@ -95,12 +95,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Clazz.cs" />
-    <Compile Include="Entity\Subject.cs" />
+    <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\Clazz.cs" />
+    <Compile Include="Entities\ErrorResponse.cs" />
+    <Compile Include="Entities\GeneralInformation.cs" />
+    <Compile Include="Entities\Subject.cs" />
+    <Compile Include="Entities\TokenResponse.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\APIHandle.cs" />
     <Compile Include="Views\GeneralInformation.xaml.cs">
       <DependentUpon>GeneralInformation.xaml</DependentUpon>
     </Compile>

@@ -1,4 +1,4 @@
-﻿using Client.Entity;
+﻿using Client.Entities;
 using Client.Service;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

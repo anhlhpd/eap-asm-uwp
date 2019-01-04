@@ -1,4 +1,5 @@
 ﻿using Client.Service;
+using Client.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -28,14 +29,15 @@ namespace Client.Views
             {
                 var response = await APIHandle.Get_Member_Infor();
                 var responseContent = await response.Content.ReadAsStringAsync();
-                GeneralInformation genInfo = JsonConvert.DeserializeObject<GeneralInformation>(responseContent);
-                this.Email.Text = genInfo.Email.ToString();
-                this.FirstName.Text = genInfo.FirstName.ToString();
-                this.LastName.Text = genInfo.LastName.ToString();
-                this.Phone.Text = genInfo.Phone.ToString();
-                this.Birthday.Text = genInfo.Birthday.ToString();
-                this.Gender.SelectedValue = genInfo.Gender.ToString();
-                Debug.WriteLine(genInfo.Gender);
+                Debug.WriteLine(responseContent);
+                
+                Entities.GeneralInformation genInfo = JsonConvert.DeserializeObject<Entities.GeneralInformation>(responseContent);
+                this.FirstName.Text = genInfo.firstName;
+                this.LastName.Text = genInfo.lastName;
+                this.Phone.Text = genInfo.phone;
+                this.Birthday.Text = genInfo.birthday.ToString();
+                this.Gender.SelectedValue = genInfo.gender;
+                //Debug.WriteLine(genInfo.gender);
             }
         }
     }

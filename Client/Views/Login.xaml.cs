@@ -1,8 +1,9 @@
-﻿using Client.Entity;
+﻿using Client.Entities;
 using Client.Service;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -67,36 +68,28 @@ namespace Client.Views
 
         private async void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine(1);
             if (Validate_Login() == true)
             {
                 var response = await APIHandle.Sign_In(this.Username.Text, this.Password.Password);
                 var responseContent = await response.Content.ReadAsStringAsync();
-                if (response.StatusCode == HttpStatusCode.Created)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(responseContent);
+                    Debug.WriteLine(responseContent);
+                    string token = responseContent;
 
                     StorageFolder folder = ApplicationData.Current.LocalFolder;
                     StorageFile file = await folder.CreateFileAsync("token.txt", CreationCollisionOption.ReplaceExisting);
-                    await FileIO.WriteTextAsync(file, responseContent);
-                    var rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(NavigationView), null, new EntranceNavigationTransitionInfo());
+                    await FileIO.WriteTextAsync(file, responseContent);                    
+                    this.Frame.Navigate(typeof(Views.NavigationView));
                 }
                 else
-                {
+                {   
                     ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
-                    if (errorObject != null && errorObject.error.Count > 0)
+                    
+                    if (errorObject != null)
                     {
-                        foreach (var key in errorObject.error.Keys)
-                        {
-                            var textMessage = this.FindName(key);
-                            if (textMessage == null)
-                            {
-                                continue;
-                            }
-                            TextBlock textBlock = textMessage as TextBlock;
-                            textBlock.Text = errorObject.error[key];
-                            textBlock.Visibility = Visibility.Visible;
-                        }
+                        Debug.WriteLine(errorObject.message);
                     }
                 }
             }

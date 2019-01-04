@@ -42,25 +42,25 @@ namespace Client.Views
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigated += On_Navigated;
-            NavView.SelectedItem = NavView.MenuItems[0];
+            //ContentFrame.Navigated += On_Navigated;
             NavView_Navigate("GeneralInformation");
             NavView.SelectedItem = NavView.MenuItems
                     .OfType<NavigationViewItem>()
                     .First(n => n.Tag.Equals("GeneralInformation"));
             NavView.IsPaneOpen = false;
 
-            var altLeft = new KeyboardAccelerator
-            {
-                Key = VirtualKey.Left,
-                Modifiers = VirtualKeyModifiers.Menu
-            };
-            this.KeyboardAccelerators.Add(altLeft);
+            //var altLeft = new KeyboardAccelerator
+            //{
+            //    Key = VirtualKey.Left,
+            //    Modifiers = VirtualKeyModifiers.Menu
+            //};
+            //this.KeyboardAccelerators.Add(altLeft);
         }
 
 
         private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
+            Debug.WriteLine("invoke");
             if (args.InvokedItem == null)
                 return;
 
@@ -82,14 +82,17 @@ namespace Client.Views
         {
             var item = _pages.First(p => p.Tag.Equals(navItemTag));
             if (currentPage == item.Page)
+            {
                 return;
+            }
             ContentFrame.Navigate(item.Page);
 
             currentPage = item.Page;
         }
-        
+
         private void On_Navigated(object sender, NavigationEventArgs e)
         {
+            Debug.WriteLine("on_navigate");
             //NavView.IsBackEnabled = ContentFrame.CanGoBack;
             //Debug.WriteLine(ContentFrame.SourcePageType);
             if (ContentFrame.SourcePageType == typeof(SettingsPage))
