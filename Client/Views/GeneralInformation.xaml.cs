@@ -28,15 +28,14 @@ namespace Client.Views
             {
                 var response = await APIHandle.Get_Member_Infor();
                 var responseContent = await response.Content.ReadAsStringAsync();
-                Debug.WriteLine(responseContent);
                 
                 Entities.GeneralInformation genInfo = JsonConvert.DeserializeObject<Entities.GeneralInformation>(responseContent);
+                this.Email.Text = genInfo.account.email;
                 this.FirstName.Text = genInfo.firstName;
                 this.LastName.Text = genInfo.lastName;
                 this.Phone.Text = genInfo.phone;
                 this.Birthday.Text = genInfo.birthday.ToString();
                 this.Gender.Text = genInfo.gender.ToString();
-                Debug.WriteLine(genInfo.gender);
             }
         }
     }
