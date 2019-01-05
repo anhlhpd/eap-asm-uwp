@@ -5,6 +5,8 @@ using System;
 using System.Diagnostics;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.ViewManagement;
+using Windows.Foundation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -18,7 +20,10 @@ namespace Client.Views
         public GeneralInformation()
         {
             this.InitializeComponent();
+            ApplicationView.PreferredLaunchViewSize = new Size(3000, 2000);
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             Get_General_Infor();
+            
 
         }
         public async void Get_General_Infor()
@@ -37,6 +42,21 @@ namespace Client.Views
                 this.Birthday.Text = genInfo.birthday.ToString();
                 this.Gender.Text = genInfo.gender.ToString();
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_SelectionChanged(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
+
+        private void Phone_SelectionChanged(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
         }
     }
 }
