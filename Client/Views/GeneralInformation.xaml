@@ -21,43 +21,43 @@
             <ScrollViewer>
                 <Pivot Height="517" Background="#FFE2EEF6" Width="1017" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="0,0,0,0">
 
-                <PivotItem Header="Show" Margin="0,10,7,0" VerticalAlignment="Top" Height="478" FontSize="20" HorizontalAlignment="Stretch">
-                    <StackPanel Orientation="Vertical" Margin="224,0,0,94" VerticalAlignment="Stretch">
-                        <TextBlock Text="Email:" VerticalAlignment="Center" FontSize="20px" Height="34" Margin="0,0,119.67,0" FontWeight="Bold" FontFamily="Chinacat"/>
-                        <TextBlock x:Name="Email" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
-                        <TextBlock Text="FirstName:" FontSize="20px" Height="31" SelectionChanged="TextBlock_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1066" FontWeight="Bold" FontFamily="Chinacat" Margin="0,0,0,0"/>
-                        <TextBlock x:Name="FirstName" Width="1040" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
-                        <TextBlock Text="LastName:" VerticalAlignment="Center" FontSize="20px" Height="31" Margin="0,0,-2,0" FontWeight="Bold" FontFamily="Chinacat"/>
-                        <TextBlock x:Name="LastName" Width="1034" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
-                        <TextBlock Text="Birthday:" VerticalAlignment="Center" FontSize="20px" Height="31" FontWeight="Bold" FontFamily="Chinacat"/>
-                        <TextBlock x:Name="Birthday" Width="1038" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
-                        <TextBlock Text="Phone:" VerticalAlignment="Center" FontSize="20px" Height="31" Margin="0,0,10,0" FontWeight="Bold" FontFamily="Chinacat"/>
-                        <TextBlock x:Name="Phone" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
-                        <TextBlock Text="Gender:" VerticalAlignment="Center"  FontSize="20px" HorizontalAlignment="Center" Height="31" FontWeight="Bold" FontFamily="Chinacat" Width="779"/>
-                        <TextBlock x:Name="Gender" Width="748" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
-                    </StackPanel>
-                </PivotItem>
-                <PivotItem Header="Edit" FontSize="14">
-                    <StackPanel x:Name="Edit" Orientation="Vertical" Margin="400,0,0,15">
-                        <TextBlock Text="Email:" VerticalAlignment="Center" FontSize="30px" HorizontalAlignment="Stretch" Height="60" Margin="0,0,0,0" FontWeight="Bold" FontFamily="Chinacat"/>
-                        <TextBlock x:Name="EditEmail" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
-                        <TextBlock Text="FirstName:" FontSize="30px" Height="60" SelectionChanged="TextBlock_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1066" FontWeight="Bold" FontFamily="Chinacat" Margin="0,0,0,0"/>
-                        <TextBlock x:Name="EditFirstName" Width="1040" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
-                        <TextBlock Text="LastName:" VerticalAlignment="Center" FontSize="30px" Height="60" Margin="0,0,-2,0" FontWeight="Bold" FontFamily="Chinacat"/>
-                        <TextBlock x:Name="EditLastName" Width="1034" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
-                        <TextBlock Text="Birthday:" VerticalAlignment="Center" FontSize="30px" Height="60" FontWeight="Bold" FontFamily="Chinacat"/>
-                        <TextBlock x:Name="EditBirthday" Width="1038" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
-                        <TextBlock Text="Phone:" VerticalAlignment="Center" FontSize="30px" Height="60" Margin="0,0,10,0" FontWeight="Bold" FontFamily="Chinacat"/>
-                        <TextBlock x:Name="EditPhone" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
-                        <TextBlock Text="Gender:" VerticalAlignment="Center"  FontSize="30px" HorizontalAlignment="Center" Height="60" FontWeight="Bold" FontFamily="Chinacat" Width="1046" Margin="0,0,0,0"/>
-                        <ComboBox Width="460" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Center" Height="48">
-                            <ComboBoxItem Tag="0">Other</ComboBoxItem>
-                            <ComboBoxItem Tag="1">Male</ComboBoxItem>
-                            <ComboBoxItem Tag="2">Female</ComboBoxItem>
-                        </ComboBox>
-                    </StackPanel>
-                </PivotItem>
-            </Pivot>
+                    <PivotItem Header="Show" Margin="0,10,7,0" VerticalAlignment="Top" Height="478" FontSize="20" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Vertical" Margin="224,0,0,94" VerticalAlignment="Stretch">
+                            <TextBlock Text="Email:" VerticalAlignment="Center" FontSize="20px" Height="34" Margin="0,0,119.67,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                            <TextBlock x:Name="Email" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                            <TextBlock Text="FirstName:" FontSize="20px" Height="31" SelectionChanged="TextBlock_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1066" FontWeight="Bold" FontFamily="Chinacat" Margin="0,0,0,0"/>
+                            <TextBlock x:Name="FirstName" Width="1040" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                            <TextBlock Text="LastName:" VerticalAlignment="Center" FontSize="20px" Height="31" Margin="0,0,-2,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                            <TextBlock x:Name="LastName" Width="1034" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                            <TextBlock Text="Birthday:" VerticalAlignment="Center" FontSize="20px" Height="31" FontWeight="Bold" FontFamily="Chinacat"/>
+                            <TextBlock x:Name="Birthday" Width="1038" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                            <TextBlock Text="Phone:" VerticalAlignment="Center" FontSize="20px" Height="31" Margin="0,0,10,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                            <TextBlock x:Name="Phone" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                            <TextBlock Text="Gender:" VerticalAlignment="Center"  FontSize="20px" HorizontalAlignment="Center" Height="31" FontWeight="Bold" FontFamily="Chinacat" Width="779"/>
+                            <TextBlock x:Name="Gender" Width="748" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        </StackPanel>
+                    </PivotItem>
+                    <PivotItem Header="Edit" FontSize="14">
+                        <StackPanel x:Name="Edit" Orientation="Vertical" Margin="400,0,0,15">
+                            <TextBlock Text="Email:" VerticalAlignment="Center" FontSize="30px" HorizontalAlignment="Stretch" Height="60" Margin="0,0,0,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                            <TextBlock x:Name="EditEmail" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
+                            <TextBlock Text="FirstName:" FontSize="30px" Height="60" SelectionChanged="TextBlock_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1066" FontWeight="Bold" FontFamily="Chinacat" Margin="0,0,0,0"/>
+                            <TextBlock x:Name="EditFirstName" Width="1040" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
+                            <TextBlock Text="LastName:" VerticalAlignment="Center" FontSize="30px" Height="60" Margin="0,0,-2,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                            <TextBlock x:Name="EditLastName" Width="1034" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
+                            <TextBlock Text="Birthday:" VerticalAlignment="Center" FontSize="30px" Height="60" FontWeight="Bold" FontFamily="Chinacat"/>
+                            <TextBlock x:Name="EditBirthday" Width="1038" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
+                            <TextBlock Text="Phone:" VerticalAlignment="Center" FontSize="30px" Height="60" Margin="0,0,10,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                            <TextBlock x:Name="EditPhone" Width="1036" HorizontalAlignment="Left" VerticalAlignment="Top" Height="53" Margin="40,0,0,10"/>
+                            <TextBlock Text="Gender:" VerticalAlignment="Center"  FontSize="30px" HorizontalAlignment="Center" Height="60" FontWeight="Bold" FontFamily="Chinacat" Width="1046" Margin="0,0,0,0"/>
+                            <ComboBox Width="460" HorizontalAlignment="Left" Margin="40,0,0,0" VerticalAlignment="Center" Height="48">
+                                <ComboBoxItem Tag="0">Other</ComboBoxItem>
+                                <ComboBoxItem Tag="1">Male</ComboBoxItem>
+                                <ComboBoxItem Tag="2">Female</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </PivotItem>
+                </Pivot>
             </ScrollViewer>
             <Image Height="186" Margin="0,69,828,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="186" Source="../Assets/MDCPSNEWSealwithCOLORS.png">
             </Image>
@@ -65,7 +65,7 @@
         <TextBlock HorizontalAlignment="Center" Text="STUDENT'S GENERAL INFORMATIONS" VerticalAlignment="Top" Height="88" Width="784" FontSize="72" FontFamily="000 TheEnd [TeddyBear]" Foreground="#FF353535" SelectionHighlightColor="White" Margin="0,20,0,0" />
         <!--<Rectangle Width="1024" Height="69" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,217,0,0" Fill="#FFB5E5F8" Grid.Row="1"/>-->
 
-        <Button x:Name="BtnLogOut" Content="LOG OUT" HorizontalAlignment="Stretch" Margin="837,217,53,23" VerticalAlignment="Stretch" Background="#33002EAD" FontFamily="000 ObelixPro TB" FontWeight="Bold" FontSize="20" Grid.Row="1"/>
+        <Button x:Name="BtnLogOut" Content="LOG OUT" HorizontalAlignment="Stretch" Margin="793,120.667,245,220" VerticalAlignment="Stretch" Background="#33002EAD" FontFamily="000 ObelixPro TB" FontWeight="Bold" FontSize="20" Grid.Row="1"/>
 
     </Grid>
 </Page>
