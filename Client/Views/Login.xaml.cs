@@ -95,5 +95,13 @@ namespace Client.Views
                 }
             }
         }
+
+        private async void Login_OnLoading(FrameworkElement sender, object args)
+        {
+            if (await GlobalHandle.checkToken() != null)
+            {
+                this.Frame.Navigate(typeof(Views.NavigationView));
+            }
+        }
     }
 }

@@ -26,8 +26,7 @@ namespace Client.Views
         }
 
         private async void Get_List_Subject()
-        {
-            this.listAllSubjects = new ObservableCollection<Subject>();
+        {           
             var response = await APIHandle.Get_Subjects();
             var responseContent = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == HttpStatusCode.OK)
