@@ -13,18 +13,18 @@ namespace Client.Service
     class APIHandle
     {
         private static string API_GENERAL_INFOR = "https://eap-asm.azurewebsites.net/api/authentication/tokenLogin?accessToken=";
-        private static string API_SUBJECTS = "https://localhost:44134/api/AccountSubject/";
-        private static string API_CLAZZ = "https://localhost:44134/api/AccountClazz/";
+        private static string API_SUBJECTS = "https://eap-asm.azurewebsites.net/api/Student/GetAllSubject";
+        private static string API_CLAZZ = "https://eap-asm.azurewebsites.net/api/AccountClazz/";
         private static string API_LOGIN = "https://eap-asm.azurewebsites.net/api/Authentication/StudentLogin";
         public async static Task<HttpResponseMessage> Get_Member_Infor()
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             StorageFile file = await storageFolder.GetFileAsync("token.txt");
-            string json = await FileIO.ReadTextAsync(file);
+            string token = await FileIO.ReadTextAsync(file);
 
             HttpClient httpClient = new HttpClient();
             var content = new StringContent("");
-            var response = httpClient.PostAsync(API_GENERAL_INFOR + json, content);
+            var response = httpClient.PostAsync(API_GENERAL_INFOR + token, content);
             return response.Result;
         }
 
@@ -32,10 +32,7 @@ namespace Client.Service
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
             StorageFile file = await storageFolder.GetFileAsync("token.txt");
-            string json = await FileIO.ReadTextAsync(file);
-            JsonValue jsonValue = JsonValue.Parse(json);
-            string token = jsonValue.GetObject().GetNamedString("token");
-            Debug.WriteLine(token);
+            string token = await FileIO.ReadTextAsync(file);
 
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
