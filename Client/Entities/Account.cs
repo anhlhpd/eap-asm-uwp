@@ -25,6 +25,7 @@ namespace Client.Entities
         public DateTime updatedAt { get => _updatedAt; set => _updatedAt = value; }
         public DateTime? deletedAt { get => _deletedAt; set => _deletedAt = value; }
         public AccountStatus status { get => _status; set => _status = value; }
+        public GeneralInformation generalInformation { get => _generalInformation; set => _generalInformation = value; }
     }
 
     public enum AccountStatus

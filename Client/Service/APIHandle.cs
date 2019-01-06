@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Client.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,6 +18,7 @@ namespace Client.Service
         private static string API_CLAZZ = "https://eap-asm.azurewebsites.net/api/AccountClazz/";
         private static string API_LOGIN = "https://eap-asm.azurewebsites.net/api/Authentication/StudentLogin";
         private static string API_MARK = "https://eap-asm.azurewebsites.net/api/marks/student";
+        private static string API_EDIT_GENERAL_INFOR = "https://eap-asm.azurewebsites.net/api/Accounts/";
         public async static Task<HttpResponseMessage> Get_Member_Infor()
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -71,6 +73,18 @@ namespace Client.Service
             HttpClient httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(memberLogin), Encoding.UTF8, "application/json");
             var response = httpClient.PostAsync(API_LOGIN, content);
+            return response.Result;
+        }
+        public async static Task<HttpResponseMessage> Edit_General_Infor(Account account)
+        {
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await storageFolder.GetFileAsync("token.txt");
+            string token = await FileIO.ReadTextAsync(file);
+
+            HttpClient httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
+            var content = new StringContent(JsonConvert.SerializeObject(account), Encoding.UTF8, "application/json");
+            var response = httpClient.PutAsync(API_EDIT_GENERAL_INFOR, content);
             return response.Result;
         }
     }

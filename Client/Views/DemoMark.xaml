@@ -20,7 +20,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Padding="12" Background="#FFADD9FF" BorderBrush="{StaticResource Brush}" BorderThickness="3">
+                <Grid Grid.Row="0" Padding="12" Background="#FFADD9FF">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
@@ -87,10 +87,10 @@
                                     </Grid.RowDefinitions>
                                     <TextBlock Grid.Column="0"  VerticalAlignment="Center"/>
                                     <TextBlock Grid.Column="1" VerticalAlignment="Center"/>
-                                    <TextBlock Grid.Column="2" Text=""></TextBlock>
-                                    <TextBlock Grid.Column="3" Text=""></TextBlock>
-                                    <TextBlock Grid.Column="4" Text=""></TextBlock>
-                                    <TextBlock Grid.Column="5" Text=""></TextBlock>
+                                    <TextBlock Grid.Column="2" Text="" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Grid.Column="3" Text="" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Grid.Column="4" Text="" VerticalAlignment="Center"></TextBlock>
+                                    <TextBlock Grid.Column="5" Text="" VerticalAlignment="Center"></TextBlock>
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>

@@ -9,6 +9,7 @@ using Windows.UI.ViewManagement;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Animation;
+using System.Net;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -36,10 +37,15 @@ namespace Client.Views
                 
                 Entities.GeneralInformation genInfo = JsonConvert.DeserializeObject<Entities.GeneralInformation>(responseContent);
                 this.Email.Text = genInfo.account.email;
+                this.EditEmail.Text = genInfo.account.email;
                 this.FirstName.Text = genInfo.firstName;
+                this.EditFirstName.Text = genInfo.firstName;
                 this.LastName.Text = genInfo.lastName;
+                this.EditLastName.Text = genInfo.lastName;
                 this.Phone.Text = genInfo.phone;
+                this.EditPhone.Text = genInfo.phone;
                 this.Birthday.Text = genInfo.birthday.ToString();
+                this.EditBirthday.Date = genInfo.birthday;
                 this.Gender.Text = genInfo.gender.ToString();
             }
         }
@@ -73,6 +79,33 @@ namespace Client.Views
                 // Do nothing.
             }
 
+        }
+
+        private async void BtnSave(object sender, RoutedEventArgs e)
+        {
+            Entities.Account account = new Entities.Account()
+            {
+                email = this.EditEmail.Text,
+                generalInformation = new Entities.GeneralInformation()
+                {
+                    firstName = this.EditFirstName.Text,
+                    lastName = this.EditLastName.Text,
+                    phone = this.EditPhone.Text,
+                    birthday = this.EditBirthday.Date.DateTime,
+                    gender = (Gender)this.EditGender.SelectedValue
+                }
+            };
+            var response = await APIHandle.Edit_General_Infor(account);
+            var responseContent = await response.Content.ReadAsStringAsync();
+            if (response.StatusCode == HttpStatusCode.OK) {
+                var dialog = new ContentDialog()
+                {
+                    Title = "Success!",
+                    MaxWidth = this.ActualWidth,
+                    Content = "You have edited your general Information",
+                    CloseButtonText = "OK!"
+                };
+            }
         }
     }
 }

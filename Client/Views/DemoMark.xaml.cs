@@ -51,9 +51,6 @@ namespace Client.Views
                 var list = JsonConvert.DeserializeObject<List<Entities.Mark>>(responseContent);
                 foreach (var obj in list)
                 {
-
-                    //Subject subject = obj.ToObject<Subject>();
-                    //this.listAllSubjects.Add(subject);
                     Debug.WriteLine(obj.AccountId.ToString());
                 }
             }

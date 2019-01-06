@@ -44,7 +44,7 @@
     </Page.Resources>
     <Grid>
         <ScrollViewer>
-            <Grid BorderBrush="Black" BorderThickness="5">
+            <Grid>
                 <Grid.Resources>
                     <SolidColorBrush x:Key="Brush" Color="Black"></SolidColorBrush>
                 </Grid.Resources>
@@ -52,7 +52,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Padding="12" Background="#FFADD9FF" BorderBrush="{StaticResource Brush}" BorderThickness="3">
+                <Grid Grid.Row="0" Padding="12" Background="#FFADD9FF">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
@@ -93,27 +93,12 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <ListView  x:Name="GridViewTheory" ItemTemplate="{StaticResource Theory}"/>                        
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="1">
-                        <ListView x:Name="GridViewTheoryStatus" ItemTemplate="{StaticResource TheoryStatus}"/>
-                    </StackPanel>
-                    
-                    <StackPanel Grid.Column="2">
-                        <ListView  x:Name="GridViewPractice" ItemTemplate="{StaticResource Practice}"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <ListView  x:Name="GridViewPracticeStatus" ItemTemplate="{StaticResource PracticeStatus}"/>
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="4">
-                        <ListView  x:Name="GridViewAssignment" ItemTemplate="{StaticResource Assignment}"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="5">
-                        <ListView  x:Name="GridViewAssignmentStatus" ItemTemplate="{StaticResource AssignmentStatus}"/>
-                    </StackPanel>
+                    <ListView Grid.Column="0" x:Name="GridViewTheory" HorizontalAlignment="Center" ItemTemplate="{StaticResource Theory}"/>
+                    <ListView Grid.Column="1" x:Name="GridViewTheoryStatus" HorizontalAlignment="Center" ItemTemplate="{StaticResource TheoryStatus}"/>
+                    <ListView Grid.Column="2"  x:Name="GridViewPractice" HorizontalAlignment="Center" ItemTemplate="{StaticResource Practice}"/>
+                    <ListView Grid.Column="3"  x:Name="GridViewPracticeStatus" HorizontalAlignment="Center" ItemTemplate="{StaticResource PracticeStatus}"/>
+                    <ListView Grid.Column="4"  x:Name="GridViewAssignment" HorizontalAlignment="Center" ItemTemplate="{StaticResource Assignment}"/>
+                    <ListView Grid.Column="5"  x:Name="GridViewAssignmentStatus" HorizontalAlignment="Center" ItemTemplate="{StaticResource AssignmentStatus}"/>
                 </Grid>
             </Grid>
             

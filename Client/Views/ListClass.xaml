@@ -36,12 +36,12 @@
                             <StackPanel Orientation="Horizontal" Tag="{Binding}" AutomationProperties.Name="{x:Bind id}">
                                 <Grid Height="100">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="250"/>
+                                        <ColumnDefinition Width="250"/>
+                                        <ColumnDefinition Width="250"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Grid.Column="0" VerticalAlignment="Center" Source="{x:Bind id}" />
+                                    <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="{x:Bind id}" />
                                     <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{x:Bind startDate}"/>
                                     <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{x:Bind session}"/>
                                     <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{x:Bind currentSubjectId}"/>

@@ -34,17 +34,16 @@
                         <DataTemplate x:Name="TableDataTemplate" x:DataType="entity:Subject">
                             <StackPanel Orientation="Horizontal" Tag="{Binding}" AutomationProperties.Name="{x:Bind id}"
                                             Height="80" Tapped="StackPanel_Tap">
-                                <Grid BorderBrush="Black" BorderThickness="3">
+                                <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="250"/>
+                                        <ColumnDefinition Width="250"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBlock VerticalAlignment="Center" Text="{x:Bind id}" />
-                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{x:Bind name}"/>
-                                    <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{x:Bind description}"/>
+                                    <TextBlock HorizontalAlignment="Center" Text="{x:Bind id}" />
+                                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{x:Bind name}"/>
+                                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="{x:Bind description}"/>
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>
