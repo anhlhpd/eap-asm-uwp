@@ -1,0 +1,116 @@
+﻿<Page
+    x:Class="Client.Views.Mark"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:entity="using:Client.Entities"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"    
+    Loaded="Page_Loaded"
+    >
+    <Page.Resources>
+        <DataTemplate x:Key="Theory">            
+                <Grid>
+                    
+
+                    <TextBlock HorizontalAlignment="Left"  TextWrapping="NoWrap" Text="{Binding Value}"  />
+
+                    <TextBlock HorizontalAlignment="Right" TextWrapping="NoWrap" Text="{Binding Status}" />
+                </Grid>
+            
+        </DataTemplate>
+        <DataTemplate x:Key="Practice">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" TextWrapping="NoWrap" Text="{Binding Value}"  />
+
+                <TextBlock Grid.Column="1" TextWrapping="NoWrap" Text="{Binding Status}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="Assignment">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" TextWrapping="NoWrap" Text="{Binding Value}"  />
+
+                <TextBlock Grid.Column="1" TextWrapping="NoWrap" Text="{Binding Status}" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <ScrollViewer>
+            <Grid BorderBrush="Black" BorderThickness="5">
+                <Grid.Resources>
+                    <SolidColorBrush x:Key="Brush" Color="Black"></SolidColorBrush>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Padding="12" Background="#FFADD9FF" BorderBrush="{StaticResource Brush}" BorderThickness="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="THEORY" FontSize="20px"  HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="PRACTICE" FontSize="20px"  HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="2" Grid.Row="0" Text="ASSIGNMENT" FontSize="20px"  HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Value" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Grid.Column="1" Text="Status" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Grid.Column="2" Text="Value" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Grid.Column="3" Text="Status" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Grid.Column="4" Text="Value" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Grid.Column="5" Text="Status" HorizontalAlignment="Center"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <GridView  x:Name="GridViewTheory" ItemTemplate="{StaticResource Theory}"/>                        
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <GridView x:Name="GridViewPractice" ItemTemplate="{StaticResource Practice}"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="2">
+                        <GridView  x:Name="GridViewAssignment" ItemTemplate="{StaticResource Assignment}"/>
+                    </StackPanel>
+                    
+                </Grid>
+            </Grid>
+            
+        </ScrollViewer>
+    </Grid>
+</Page>

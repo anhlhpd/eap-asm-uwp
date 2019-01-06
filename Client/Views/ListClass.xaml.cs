@@ -22,9 +22,10 @@ namespace Client.Views
         public ListClass()
         {
             this.InitializeComponent();
+            Get_List_Clazz();
 
         }
-        private async void Get_List_Subject()
+        private async void Get_List_Clazz()
         {
             this.listAllClazzes = new ObservableCollection<Clazz>();
             var response = await APIHandle.Get_Subjects();
@@ -49,21 +50,14 @@ namespace Client.Views
                     CloseButtonText = "OK!"
                 };
                 ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
+
                 if (errorObject != null)
                 {
-                    foreach (var key in errorObject.error.Keys)
-                    {
-                        var textMessage = this.FindName(key);
-                        if (textMessage == null)
-                        {
-                            continue;
-                        }
-                        TextBlock textBlock = textMessage as TextBlock;
-                        textBlock.Text = errorObject.error[key];
-                        textBlock.Visibility = Visibility.Visible;
-                    }
+                    Debug.WriteLine(errorObject.message);
                 }
             }
         }
+
+        
     }
 }

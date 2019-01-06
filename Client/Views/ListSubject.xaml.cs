@@ -26,7 +26,9 @@ namespace Client.Views
         }
 
         private async void Get_List_Subject()
-        {           
+        {
+            this.listAllSubjects = new ObservableCollection<Subject>();
+            
             var response = await APIHandle.Get_Subjects();
             var responseContent = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == HttpStatusCode.OK)
@@ -49,21 +51,17 @@ namespace Client.Views
                     CloseButtonText = "OK!"
                 };
                 ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
+
                 if (errorObject != null)
                 {
-                    foreach (var key in errorObject.error.Keys)
-                    {
-                        var textMessage = this.FindName(key);
-                        if (textMessage == null)
-                        {
-                            continue;
-                        }
-                        TextBlock textBlock = textMessage as TextBlock;
-                        textBlock.Text = errorObject.error[key];
-                        textBlock.Visibility = Visibility.Visible;
-                    }
+                    Debug.WriteLine(errorObject.message);
                 }
             }
+        }
+
+        private void StackPanel_Tap(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Mark));
         }
     }
 }
