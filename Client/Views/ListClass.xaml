@@ -12,21 +12,21 @@
     <Grid>
         <ScrollViewer>
             <Grid>
-                <GridViewHeaderItem Content="List class" FontWeight="Bold"></GridViewHeaderItem>
-                <ListView ItemsSource="{x:Bind ListAllClazzes, Mode=TwoWay}" x:Name="MenuListAllSong">
+                <GridViewHeaderItem Content="YOUR CLASSES" FontWeight="Bold"></GridViewHeaderItem>
+                <ListView ItemsSource="{x:Bind ListAllClazzes, Mode=TwoWay}" x:Name="MenuListAllSong" Margin="0,45,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <ListView.HeaderTemplate>
                         <DataTemplate>
-                            <Grid Padding="12" Background="AliceBlue">
+                            <Grid Padding="12" Background="#FFADD9FF" BorderBrush="Black">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="Id" HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                                <TextBlock Grid.Column="1" Text="Start Date"  HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                                <TextBlock Grid.Column="2" Text="Session"  HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                                <TextBlock Grid.Column="3" Text="Current Subject"  HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="0" Text="ID" FontSize="20px" HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="1" Text="Start Date" FontSize="20px" HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="2" Text="Session" FontSize="20px" HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Grid.Column="3" Text="Current Subject" FontSize="20px" HorizontalAlignment="Center" Style="{ThemeResource CaptionTextBlockStyle}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.HeaderTemplate>
@@ -36,12 +36,12 @@
                             <StackPanel Orientation="Horizontal" Tag="{Binding}" AutomationProperties.Name="{x:Bind id}">
                                 <Grid Height="100">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="250"/>
+                                        <ColumnDefinition Width="250"/>
+                                        <ColumnDefinition Width="250"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Grid.Column="0" VerticalAlignment="Center" Source="{x:Bind id}" />
+                                    <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="{x:Bind id}" />
                                     <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{x:Bind startDate}"/>
                                     <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{x:Bind session}"/>
                                     <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{x:Bind currentSubjectId}"/>

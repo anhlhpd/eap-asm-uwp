@@ -61,7 +61,6 @@ namespace Client.Views
 
         private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            Debug.WriteLine("invoke");
             if (args.InvokedItem == null)
                 return;
 
@@ -93,7 +92,6 @@ namespace Client.Views
 
         private void On_Navigated(object sender, NavigationEventArgs e)
         {
-            Debug.WriteLine("on_navigate");
             //NavView.IsBackEnabled = ContentFrame.CanGoBack;
             //Debug.WriteLine(ContentFrame.SourcePageType);
             if (ContentFrame.SourcePageType == typeof(SettingsPage))

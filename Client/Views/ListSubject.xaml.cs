@@ -2,8 +2,10 @@
 using Client.Service;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Net;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,9 +28,12 @@ namespace Client.Views
         }
 
         private async void Get_List_Subject()
-        {           
+        {
+            this.listAllSubjects = new ObservableCollection<Subject>();
+            
             var response = await APIHandle.Get_Subjects();
             var responseContent = await response.Content.ReadAsStringAsync();
+
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var array = JArray.Parse(responseContent);
@@ -49,21 +54,20 @@ namespace Client.Views
                     CloseButtonText = "OK!"
                 };
                 ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
+
                 if (errorObject != null)
                 {
-                    foreach (var key in errorObject.error.Keys)
-                    {
-                        var textMessage = this.FindName(key);
-                        if (textMessage == null)
-                        {
-                            continue;
-                        }
-                        TextBlock textBlock = textMessage as TextBlock;
-                        textBlock.Text = errorObject.error[key];
-                        textBlock.Visibility = Visibility.Visible;
-                    }
+                    Debug.WriteLine(errorObject.message);
                 }
             }
+        }
+
+        private void StackPanel_Tap(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            StackPanel sp = sender as StackPanel;
+            Subject chosseSubject =  sp.Tag as Subject;;
+            GlobalVariable.CurrentSubectId = chosseSubject.id;
+            this.Frame.Navigate(typeof(Mark));
         }
     }
 }

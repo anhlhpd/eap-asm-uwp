@@ -99,6 +99,8 @@
     <Compile Include="Entities\Clazz.cs" />
     <Compile Include="Entities\ErrorResponse.cs" />
     <Compile Include="Entities\GeneralInformation.cs" />
+    <Compile Include="Entities\GlobalVariable.cs" />
+    <Compile Include="Entities\Mark.cs" />
     <Compile Include="Entities\Subject.cs" />
     <Compile Include="Entities\TokenResponse.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -107,6 +109,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\APIHandle.cs" />
     <Compile Include="Service\GlobalHandle.cs" />
+    <Compile Include="Views\DemoMark.xaml.cs">
+      <DependentUpon>DemoMark.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GeneralInformation.xaml.cs">
       <DependentUpon>GeneralInformation.xaml</DependentUpon>
     </Compile>
@@ -118,6 +123,9 @@
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mark.xaml.cs">
+      <DependentUpon>Mark.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
@@ -153,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\DemoMark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GeneralInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Mark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
