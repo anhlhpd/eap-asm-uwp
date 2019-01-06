@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Client.Entities;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,14 +28,14 @@ namespace Client.Views
     /// </summary>
     public sealed partial class Mark : Page
     {
-        private ObservableCollection<Mark> listAllMarks;
-        internal ObservableCollection<Mark> ListAllMarks { get => listAllMarks; set => listAllMarks = value; }
-        private ICollection<Mark> listTheoryMarks;
-        private ObservableCollection<Mark> listPracticeMarks;
-        private ObservableCollection<Mark> listAsmMarks;
-        public ICollection<Mark> ListTheoryMarks { get => listTheoryMarks; set => listTheoryMarks = value; }
-        public ObservableCollection<Mark> ListPracticeMarks { get => listPracticeMarks; set => listPracticeMarks = value; }
-        public ObservableCollection<Mark> ListAsmMarks { get => listAsmMarks; set => listAsmMarks = value; }
+        //private ObservableCollection<Mark> listAllMarks;
+        //internal ObservableCollection<Mark> ListAllMarks { get => listAllMarks; set => listAllMarks = value; }
+        //private ICollection<Mark> listTheoryMarks;
+        //private ObservableCollection<Mark> listPracticeMarks;
+        //private ObservableCollection<Mark> listAsmMarks;
+        //public ICollection<Mark> ListTheoryMarks { get => listTheoryMarks; set => listTheoryMarks = value; }
+        //public ObservableCollection<Mark> ListPracticeMarks { get => listPracticeMarks; set => listPracticeMarks = value; }
+        //public ObservableCollection<Mark> ListAsmMarks { get => listAsmMarks; set => listAsmMarks = value; }
         public Mark()
         {
             this.InitializeComponent();
@@ -50,10 +51,16 @@ namespace Client.Views
                 Debug.WriteLine("1");
                 Debug.WriteLine(responseContent);
                 var list = JsonConvert.DeserializeObject<List<Entities.Mark>>(responseContent);
-                GridViewTheory.ItemsSource = list.Where(m => m.MarkType == Entities.MarkType.Theory).ToList();
-                GridViewPractice.ItemsSource = list.Where(m => m.MarkType == Entities.MarkType.Practice).ToList();
-                GridViewAssignment.ItemsSource = list.Where(m => m.MarkType == Entities.MarkType.Assignment).ToList();
-                foreach(var item in list)
+                var listFiletBySubject = list.Where(m => m.SubjectId == GlobalVariable.CurrentSubectId).ToList();
+                GridViewTheory.ItemsSource = listFiletBySubject.Where(m => m.MarkType == Entities.MarkType.Theory).ToList();
+                GridViewTheoryStatus.ItemsSource = listFiletBySubject.Where(m => m.MarkType == Entities.MarkType.Theory).ToList();
+
+                GridViewPractice.ItemsSource = listFiletBySubject.Where(m => m.MarkType == Entities.MarkType.Practice).ToList();
+                GridViewPracticeStatus.ItemsSource = listFiletBySubject.Where(m => m.MarkType == Entities.MarkType.Practice).ToList();
+
+                GridViewAssignment.ItemsSource = listFiletBySubject.Where(m => m.MarkType == Entities.MarkType.Assignment).ToList();
+                GridViewAssignmentStatus.ItemsSource = listFiletBySubject.Where(m => m.MarkType == Entities.MarkType.Assignment).ToList();
+                foreach (var item in list)
                 {
                     Debug.WriteLine(item.AccountId);
                 }

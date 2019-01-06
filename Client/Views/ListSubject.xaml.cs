@@ -61,6 +61,9 @@ namespace Client.Views
 
         private void StackPanel_Tap(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
+            StackPanel sp = sender as StackPanel;
+            Subject chosseSubject =  sp.Tag as Subject;;
+            GlobalVariable.CurrentSubectId = chosseSubject.id;
             this.Frame.Navigate(typeof(Mark));
         }
     }

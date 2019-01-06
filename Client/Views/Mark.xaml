@@ -11,40 +11,34 @@
     Loaded="Page_Loaded"
     >
     <Page.Resources>
-        <DataTemplate x:Key="Theory">            
-                <Grid>
-                    
-
-                    <TextBlock HorizontalAlignment="Left"  TextWrapping="NoWrap" Text="{Binding Value}"  />
-
-                    <TextBlock HorizontalAlignment="Right" TextWrapping="NoWrap" Text="{Binding Status}" />
-                </Grid>
-            
+        <DataTemplate x:Key="Theory">
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Left"  TextWrapping="NoWrap" Text="{Binding Value}"  />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TheoryStatus">
+            <Grid>
+                <TextBlock HorizontalAlignment="Right" TextWrapping="NoWrap" Text="{Binding Status}" />
+            </Grid>
         </DataTemplate>
         <DataTemplate x:Key="Practice">
+            <StackPanel>
+                <TextBlock TextWrapping="NoWrap" Text="{Binding Value}"  />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PracticeStatus">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Column="0" TextWrapping="NoWrap" Text="{Binding Value}"  />
-
-                <TextBlock Grid.Column="1" TextWrapping="NoWrap" Text="{Binding Status}" />
+                <TextBlock HorizontalAlignment="Right" TextWrapping="NoWrap" Text="{Binding Status}" />
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="Assignment">
+            <StackPanel>
+                <TextBlock TextWrapping="NoWrap" Text="{Binding Value}"  />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="AssignmentStatus">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-
-                </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Column="0" TextWrapping="NoWrap" Text="{Binding Value}"  />
-
-                <TextBlock Grid.Column="1" TextWrapping="NoWrap" Text="{Binding Status}" />
+                <TextBlock HorizontalAlignment="Right" TextWrapping="NoWrap" Text="{Binding Status}" />
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -95,19 +89,31 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <GridView  x:Name="GridViewTheory" ItemTemplate="{StaticResource Theory}"/>                        
+                        <ListView  x:Name="GridViewTheory" ItemTemplate="{StaticResource Theory}"/>                        
                     </StackPanel>
 
                     <StackPanel Grid.Column="1">
-                        <GridView x:Name="GridViewPractice" ItemTemplate="{StaticResource Practice}"/>
+                        <ListView x:Name="GridViewTheoryStatus" ItemTemplate="{StaticResource TheoryStatus}"/>
                     </StackPanel>
                     
                     <StackPanel Grid.Column="2">
-                        <GridView  x:Name="GridViewAssignment" ItemTemplate="{StaticResource Assignment}"/>
+                        <ListView  x:Name="GridViewPractice" ItemTemplate="{StaticResource Practice}"/>
                     </StackPanel>
-                    
+                    <StackPanel Grid.Column="3">
+                        <ListView  x:Name="GridViewPracticeStatus" ItemTemplate="{StaticResource PracticeStatus}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="4">
+                        <ListView  x:Name="GridViewAssignment" ItemTemplate="{StaticResource Assignment}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="5">
+                        <ListView  x:Name="GridViewAssignmentStatus" ItemTemplate="{StaticResource AssignmentStatus}"/>
+                    </StackPanel>
                 </Grid>
             </Grid>
             
