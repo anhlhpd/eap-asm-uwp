@@ -37,6 +37,7 @@
                 </RelativePanel>
 
                 <RelativePanel HorizontalAlignment="Center" Margin="0, 30, 0, 0">
+                    <TextBlock x:Name="error" Foreground="Red"></TextBlock>
                     <Button x:Name="BtnLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnLogin_Click"/>
                 </RelativePanel>
             </StackPanel>

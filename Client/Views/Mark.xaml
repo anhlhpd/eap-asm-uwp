@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:entity="using:Client.Entities"
+    xmlns:Windows10FallCreatorsUpdate="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 5)"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"    
     Loaded="Page_Loaded"
@@ -43,6 +44,8 @@
         </DataTemplate>
     </Page.Resources>
     <Grid>
+        <TextBlock HorizontalAlignment="Center" Text="SUBJECT" VerticalAlignment="Top"
+                   x:Name="Header" Height="56" Width="100" FontSize="35"/>
         <ScrollViewer>
             <Grid>
                 <Grid.Resources>
@@ -52,7 +55,8 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Padding="12" Background="#FFADD9FF">
+                <Grid Grid.Row="0" Padding="12" Background="#FFADD9FF" Margin="0,45,0,0">
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
@@ -95,13 +99,12 @@
                     </Grid.ColumnDefinitions>
                     <ListView Grid.Column="0" x:Name="GridViewTheory" HorizontalAlignment="Center" ItemTemplate="{StaticResource Theory}"/>
                     <ListView Grid.Column="1" x:Name="GridViewTheoryStatus" HorizontalAlignment="Center" ItemTemplate="{StaticResource TheoryStatus}"/>
-                    <ListView Grid.Column="2"  x:Name="GridViewPractice" HorizontalAlignment="Center" ItemTemplate="{StaticResource Practice}"/>
-                    <ListView Grid.Column="3"  x:Name="GridViewPracticeStatus" HorizontalAlignment="Center" ItemTemplate="{StaticResource PracticeStatus}"/>
-                    <ListView Grid.Column="4"  x:Name="GridViewAssignment" HorizontalAlignment="Center" ItemTemplate="{StaticResource Assignment}"/>
-                    <ListView Grid.Column="5"  x:Name="GridViewAssignmentStatus" HorizontalAlignment="Center" ItemTemplate="{StaticResource AssignmentStatus}"/>
+                    <ListView Grid.Column="2" x:Name="GridViewPractice" HorizontalAlignment="Center" ItemTemplate="{StaticResource Practice}"/>
+                    <ListView Grid.Column="3" x:Name="GridViewPracticeStatus" HorizontalAlignment="Center" ItemTemplate="{StaticResource PracticeStatus}"/>
+                    <ListView Grid.Column="4" x:Name="GridViewAssignment" HorizontalAlignment="Center" ItemTemplate="{StaticResource Assignment}"/>
+                    <ListView Grid.Column="5" x:Name="GridViewAssignmentStatus" HorizontalAlignment="Center" ItemTemplate="{StaticResource AssignmentStatus}"/>
                 </Grid>
             </Grid>
-            
         </ScrollViewer>
     </Grid>
 </Page>

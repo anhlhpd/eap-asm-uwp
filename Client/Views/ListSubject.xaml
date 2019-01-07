@@ -17,7 +17,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" Margin="0,55,0,0">
                     <Grid Padding="12" Background="#FFADD9FF">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -33,7 +33,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate x:Name="TableDataTemplate" x:DataType="entity:Subject">
                             <StackPanel Orientation="Horizontal" Tag="{Binding}" AutomationProperties.Name="{x:Bind id}"
-                                            Height="80" Tapped="StackPanel_Tap">
+                                            Height="80" Tapped="StackPanel_Tapped">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="200"/>
@@ -49,6 +49,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <TextBlock HorizontalAlignment="Center" Text="YOUR SUBJECTS" VerticalAlignment="Top" Height="56" Width="300" FontSize="35"/>
             </Grid>
         </ScrollViewer>
     </Grid>

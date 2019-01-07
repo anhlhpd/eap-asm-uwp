@@ -9,5 +9,8 @@ namespace Client.Entities
     class GlobalVariable
     {
         public static string CurrentSubectId { get; set; }
+        public static string CurrentSubjectName { get; set; }
+        public static string CurrentClazzId { get; set; }
+        public static string AccountId { get; set; }
     }
 }

@@ -35,20 +35,16 @@
         <Windows10FallCreatorsUpdate:NavigationView x:Name="NavView"
             CompactModeThresholdWidth="280" ExpandedModeThresholdWidth="2500"
                 Loaded="NavView_Loaded" ItemInvoked="NavView_ItemInvoked"
-                     IsSettingsVisible="True" Windows10version1803:IsBackButtonVisible="Collapsed"
+                     IsSettingsVisible="True" 
                         OpenPaneLength="300" IsPaneOpen="True">
-            <NavigationView.AutoSuggestBox>
-                <AutoSuggestBox x:Name="SearchBox" QueryIcon="Find"/>
-            </NavigationView.AutoSuggestBox>
             <NavigationView.MenuItems>
-                <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
                 <NavigationViewItemHeader x:Name="MainPagesHeader"
                                            Content="Main pages"/>
-                <NavigationViewItem Content="ListClass" x:Name="ListClass"
+                <NavigationViewItem Content="List Class" x:Name="ListClass"
                                     Tag="ListClass" Icon="Calendar" />
-                <NavigationViewItem Content="ListSubject" x:Name="ListSubject"
+                <NavigationViewItem Content="List Subject" x:Name="ListSubject"
                                     Tag="ListSubject" Icon="Page2" />
-                <NavigationViewItem Content="GeneralInformation" x:Name="GeneralInformation"
+                <NavigationViewItem Content="General Information" x:Name="GeneralInformation"
                                     Tag="GeneralInformation" Icon="Contact" />
             </NavigationView.MenuItems>
 
