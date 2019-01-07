@@ -50,7 +50,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <TextBlock HorizontalAlignment="Center" Text="YOUR CLASSES" VerticalAlignment="Top" Height="56" Width="30" FontSize="35"/>
+                <TextBlock HorizontalAlignment="Center" Text="YOUR CLASSES" VerticalAlignment="Top" Height="56" Width="300" FontSize="35"/>
             </Grid>
         </ScrollViewer>
     </Grid>

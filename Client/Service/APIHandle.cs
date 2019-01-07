@@ -16,6 +16,7 @@ namespace Client.Service
         private static string API_GENERAL_INFOR = "https://eap-asm.azurewebsites.net/api/authentication/tokenLogin?accessToken=";
         private static string API_SUBJECTS = "https://eap-asm.azurewebsites.net/api/Subjects/Student";
         private static string API_CLAZZ = "https://eap-asm.azurewebsites.net/api/AccountClazz/";
+        private static string API_CLAZZ_INFOR = "https://eap-asm.azurewebsites.net/api/Clazz/";
         private static string API_LOGIN = "https://eap-asm.azurewebsites.net/api/Authentication/StudentLogin";
         private static string API_MARK = "https://eap-asm.azurewebsites.net/api/marks/student";
         private static string API_EDIT_GENERAL_INFOR = "https://eap-asm.azurewebsites.net/api/Accounts/";
@@ -84,6 +85,16 @@ namespace Client.Service
             httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
             var content = new StringContent(JsonConvert.SerializeObject(account), Encoding.UTF8, "application/json");
             var response = httpClient.PutAsync(API_EDIT_GENERAL_INFOR + account.id, content);
+            var con = await response.Result.Content.ReadAsStringAsync();
+            return response.Result;
+        }
+        public async static Task<HttpResponseMessage> Get_Clazz_Infor()
+        {
+            string token = await GlobalHandle.checkToken();
+
+            HttpClient httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
+            var response = httpClient.GetAsync(API_CLAZZ_INFOR + GlobalVariable.CurrentClazzId);
             var con = await response.Result.Content.ReadAsStringAsync();
             Debug.WriteLine(con);
             return response.Result;
