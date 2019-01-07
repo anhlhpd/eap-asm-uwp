@@ -40,7 +40,7 @@
                         OpenPaneLength="300" IsPaneOpen="True">
             
             <NavigationView.MenuItems>
-                <!--<But-->ton Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+                <!--<Button Style="{StaticResource NavigationBackButtonNormalStyle}"/>-->
                 <NavigationViewItemHeader x:Name="MainPagesHeader"
                                            Content="Main pages"/>
                 <NavigationViewItem Content="List Class" x:Name="ListClass"

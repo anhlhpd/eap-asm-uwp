@@ -7,8 +7,10 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +27,7 @@ namespace Client.Views
         {
             this.InitializeComponent();
             Get_List_Subject();
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
         }
 
         private async void Get_List_Subject()
@@ -73,6 +76,33 @@ namespace Client.Views
             Debug.WriteLine("end tap");
             this.Frame.Navigate(typeof(Mark));
             Debug.WriteLine("end nav");
+        }
+
+        private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
+        {
+            e.Handled = On_BackRequested();
+        }
+
+        private void On_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            bool isXButton1Pressed =
+                e.GetCurrentPoint(sender as UIElement).Properties.PointerUpdateKind == PointerUpdateKind.XButton1Pressed;
+
+            if (isXButton1Pressed)
+            {
+                e.Handled = On_BackRequested();
+            }
+        }
+
+        private bool On_BackRequested()
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+                return true;
+            }
+            return false;
         }
     }
 }
