@@ -43,7 +43,7 @@ namespace Client.Views
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
-            //ContentFrame.Navigated += On_Navigated;
+            ContentFrame.Navigated += On_Navigated;
             NavView_Navigate("GeneralInformation");
             NavView.SelectedItem = NavView.MenuItems
                     .OfType<NavigationViewItem>()
@@ -79,7 +79,6 @@ namespace Client.Views
                     .Tag.ToString();
 
                 NavView_Navigate(navItemTag);
-                //NavView.Header = navItemTag;
             }
         }
 
@@ -87,31 +86,10 @@ namespace Client.Views
         {
             var item = _pages.First(p => p.Tag.Equals(navItemTag));
             if (currentPage == item.Page)
-            {
                 return;
-            }
             ContentFrame.Navigate(item.Page);
 
             currentPage = item.Page;
-        }
-
-        private void On_Navigated(object sender, NavigationEventArgs e)
-        {
-            NavView.IsBackEnabled = ContentFrame.CanGoBack;
-            //Debug.WriteLine(ContentFrame.SourcePageType);
-            if (ContentFrame.SourcePageType == typeof(SettingsPage))
-            {
-                // SettingsItem is not part of NavView.MenuItems, and doesn't have a Tag
-                NavView.SelectedItem = (NavigationViewItem)NavView.SettingsItem;
-            }
-            else
-            {
-                var item = _pages.First(p => p.Page == e.SourcePageType);
-
-                NavView.SelectedItem = NavView.MenuItems
-                    .OfType<NavigationViewItem>()
-                    .First(n => n.Tag.Equals(item.Tag));
-            }
         }
 
         private void NavView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args) => On_BackRequested();
@@ -135,6 +113,29 @@ namespace Client.Views
 
             ContentFrame.GoBack();
             return true;
+        }
+
+        private void On_Navigated(object sender, NavigationEventArgs e)
+        {
+            NavView.IsBackEnabled = ContentFrame.CanGoBack;
+            //Debug.WriteLine(ContentFrame.SourcePageType);
+            if (ContentFrame.SourcePageType == typeof(SettingsPage))
+            {
+                // SettingsItem is not part of NavView.MenuItems, and doesn't have a Tag
+                NavView.SelectedItem = (NavigationViewItem)NavView.SettingsItem;
+            }
+            else
+            {
+                var item = _pages.First(p => p.Page == e.SourcePageType);
+
+                NavView.SelectedItem = NavView.MenuItems
+                    .OfType<NavigationViewItem>()
+                    .First(n => n.Tag.Equals(item.Tag));
+            }
+        }
+        private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
     }
 }

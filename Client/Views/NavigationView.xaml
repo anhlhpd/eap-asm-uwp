@@ -15,6 +15,7 @@
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
+                    
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger Windows10FallCreatorsUpdate:MinWindowWidth="{x:Bind NavView.CompactModeThresholdWidth}" />
                     </VisualState.StateTriggers>
@@ -37,7 +38,9 @@
                 Loaded="NavView_Loaded" ItemInvoked="NavView_ItemInvoked"
                      IsSettingsVisible="True" 
                         OpenPaneLength="300" IsPaneOpen="True">
+            
             <NavigationView.MenuItems>
+                <!--<But-->ton Style="{StaticResource NavigationBackButtonNormalStyle}"/>
                 <NavigationViewItemHeader x:Name="MainPagesHeader"
                                            Content="Main pages"/>
                 <NavigationViewItem Content="List Class" x:Name="ListClass"
@@ -48,7 +51,8 @@
                                     Tag="GeneralInformation" Icon="Contact" />
             </NavigationView.MenuItems>
 
-            <Frame x:Name="ContentFrame">
+            <Frame x:Name="ContentFrame" IsTabStop="True" NavigationFailed="ContentFrame_NavigationFailed">
+                
                 <Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition/>

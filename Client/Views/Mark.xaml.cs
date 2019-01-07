@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Client.Entities;
+using Windows.System;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,10 +40,21 @@ namespace Client.Views
         public Mark()
         {
             this.InitializeComponent();
+            KeyboardAccelerator GoBack = new KeyboardAccelerator();
+            GoBack.Key = VirtualKey.GoBack;
+            GoBack.Invoked += BackInvoked;
+            KeyboardAccelerator AltLeft = new KeyboardAccelerator();
+            AltLeft.Key = VirtualKey.Left;
+            AltLeft.Invoked += BackInvoked;
+            this.KeyboardAccelerators.Add(GoBack);
+            this.KeyboardAccelerators.Add(AltLeft);
+            // ALT routes here
+            AltLeft.Modifiers = VirtualKeyModifiers.Menu;
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("start");
             Header.Text = GlobalVariable.CurrentSubectId;
             List<Entities.Mark> marks = new List<Entities.Mark>();
             var response = await APIHandle.Get_Member_Mark();
@@ -84,5 +96,33 @@ namespace Client.Views
             //    }
             //}
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            BackButton.IsEnabled = this.Frame.CanGoBack;
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            On_BackRequested();
+        }
+
+        // Handles system-level BackRequested events and page-level back button Click events
+        private bool On_BackRequested()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+                return true;
+            }
+            return false;
+        }
+
+        private void BackInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            On_BackRequested();
+            args.Handled = true;
+        }
+
     }
 }
