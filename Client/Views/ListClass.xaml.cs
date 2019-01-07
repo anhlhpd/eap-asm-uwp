@@ -17,8 +17,8 @@ namespace Client.Views
     /// </summary>
     public sealed partial class ListClass : Page
     {
-        private ObservableCollection<Clazz> listAllClazzes;
-        internal ObservableCollection<Clazz> ListAllClazzes { get => listAllClazzes; set => listAllClazzes = value; }
+        private ObservableCollection<Entities.Clazz> listAllClazzes;
+        internal ObservableCollection<Entities.Clazz> ListAllClazzes { get => listAllClazzes; set => listAllClazzes = value; }
         public ListClass()
         {
             this.InitializeComponent();
@@ -27,7 +27,7 @@ namespace Client.Views
         }
         private async void Get_List_Clazz()
         {
-            this.listAllClazzes = new ObservableCollection<Clazz>();
+            this.listAllClazzes = new ObservableCollection<Entities.Clazz>();
             var response = await APIHandle.Get_Subjects();
             var responseContent = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == HttpStatusCode.OK)
@@ -35,7 +35,7 @@ namespace Client.Views
                 var array = JArray.Parse(responseContent);
                 foreach (var obj in array)
                 {
-                    Clazz clazz = obj.ToObject<Clazz>();
+                    Entities.Clazz clazz = obj.ToObject<Entities.Clazz>();
                     this.listAllClazzes.Add(clazz);
                     Debug.WriteLine(clazz.id);
                 }
@@ -58,6 +58,12 @@ namespace Client.Views
             }
         }
 
-        
+        private void StackPanel_Tap(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            StackPanel sp = sender as StackPanel;
+            Entities.Clazz clazz = sp.Tag as Entities.Clazz;
+            GlobalVariable.CurrentClazzId = clazz.id;
+            this.Frame.Navigate(typeof(Clazz));
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Client.Service
     class APIHandle
     {
         private static string API_GENERAL_INFOR = "https://eap-asm.azurewebsites.net/api/authentication/tokenLogin?accessToken=";
-        private static string API_SUBJECTS = "https://eap-asm.azurewebsites.net//api/Subjects/Student";
+        private static string API_SUBJECTS = "https://eap-asm.azurewebsites.net/api/Subjects/Student";
         private static string API_CLAZZ = "https://eap-asm.azurewebsites.net/api/AccountClazz/";
         private static string API_LOGIN = "https://eap-asm.azurewebsites.net/api/Authentication/StudentLogin";
         private static string API_MARK = "https://eap-asm.azurewebsites.net/api/marks/student";
@@ -44,9 +44,10 @@ namespace Client.Service
 
         public async static Task<HttpResponseMessage> Get_Subjects()
         {
-            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await storageFolder.GetFileAsync("token.txt");
-            string token = await FileIO.ReadTextAsync(file);
+            //StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            //StorageFile file = await storageFolder.GetFileAsync("token.txt");
+            //string token = await FileIO.ReadTextAsync(file);
+            string token = await GlobalHandle.checkToken();
 
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
@@ -77,14 +78,14 @@ namespace Client.Service
         }
         public async static Task<HttpResponseMessage> Edit_General_Infor(Account account)
         {
-            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-            StorageFile file = await storageFolder.GetFileAsync("token.txt");
-            string token = await FileIO.ReadTextAsync(file);
+            string token = await GlobalHandle.checkToken();
 
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Authorization", "Basic " + token);
             var content = new StringContent(JsonConvert.SerializeObject(account), Encoding.UTF8, "application/json");
-            var response = httpClient.PutAsync(API_EDIT_GENERAL_INFOR, content);
+            var response = httpClient.PutAsync(API_EDIT_GENERAL_INFOR + account.id, content);
+            var con = await response.Result.Content.ReadAsStringAsync();
+            Debug.WriteLine(con);
             return response.Result;
         }
     }

@@ -43,6 +43,7 @@ namespace Client.Views
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Header.Text = GlobalVariable.CurrentSubectId;
             List<Entities.Mark> marks = new List<Entities.Mark>();
             var response = await APIHandle.Get_Member_Mark();
             var responseContent = await response.Content.ReadAsStringAsync();

@@ -33,7 +33,8 @@ namespace Client.Views
             
             var response = await APIHandle.Get_Subjects();
             var responseContent = await response.Content.ReadAsStringAsync();
-
+            Debug.WriteLine(response);
+            Debug.WriteLine(responseContent);
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var array = JArray.Parse(responseContent);
@@ -62,10 +63,11 @@ namespace Client.Views
             }
         }
 
-        private void StackPanel_Tap(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void StackPanel_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             StackPanel sp = sender as StackPanel;
-            Subject chosseSubject =  sp.Tag as Subject;;
+            Subject chosseSubject = sp.Tag as Subject;
+            GlobalVariable.CurrentSubjectName = chosseSubject.name;
             GlobalVariable.CurrentSubectId = chosseSubject.id;
             this.Frame.Navigate(typeof(Mark));
         }

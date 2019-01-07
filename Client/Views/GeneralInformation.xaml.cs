@@ -23,8 +23,8 @@ namespace Client.Views
         public GeneralInformation()
         {
             this.InitializeComponent();
-            ApplicationView.PreferredLaunchViewSize = new Size(3000, 2000);
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            //ApplicationView.PreferredLaunchViewSize = new Size(3000, 2000);
+            //ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             Get_General_Infor();
         }
         public async void Get_General_Infor()
@@ -36,17 +36,17 @@ namespace Client.Views
                 var responseContent = await response.Content.ReadAsStringAsync();
                 
                 Entities.GeneralInformation genInfo = JsonConvert.DeserializeObject<Entities.GeneralInformation>(responseContent);
-                this.Email.Text = genInfo.account.email;
-                this.EditEmail.Text = genInfo.account.email;
-                this.FirstName.Text = genInfo.firstName;
-                this.EditFirstName.Text = genInfo.firstName;
-                this.LastName.Text = genInfo.lastName;
-                this.EditLastName.Text = genInfo.lastName;
-                this.Phone.Text = genInfo.phone;
-                this.EditPhone.Text = genInfo.phone;
+                this.Email.Text = genInfo.account.email;                
+                this.FirstName.Text = genInfo.firstName;                
+                this.LastName.Text = genInfo.lastName;                
+                this.Phone.Text = genInfo.phone;                
                 this.Birthday.Text = genInfo.birthday.ToString();
-                this.EditBirthday.Date = genInfo.birthday;
-                this.Gender.Text = genInfo.gender.ToString();
+                GlobalVariable.AccountId = genInfo.accountId;
+
+                this.EditEmail.Text = genInfo.account.email;
+                this.EditFirstName.Text = genInfo.firstName;
+                this.EditLastName.Text = genInfo.lastName;
+                this.EditPhone.Text = genInfo.phone;
             }
         }
 
@@ -80,32 +80,62 @@ namespace Client.Views
             }
 
         }
-
-        private async void BtnSave(object sender, RoutedEventArgs e)
+        public bool Validate_Edit()
         {
-            Entities.Account account = new Entities.Account()
+            var val = true;
+            var firstname = this.EditFirstName.Text;
+            var lastname = this.EditLastName.Text;
+            var email = this.EditEmail.Text;
+            var phone = this.EditPhone.Text;
+            var password = this.EditPassword.Password;
+            if (email == "" || firstname == "" || lastname == "" || phone == "" || password == "")
             {
-                email = this.EditEmail.Text,
-                generalInformation = new Entities.GeneralInformation()
-                {
-                    firstName = this.EditFirstName.Text,
-                    lastName = this.EditLastName.Text,
-                    phone = this.EditPhone.Text,
-                    birthday = this.EditBirthday.Date.DateTime,
-                    gender = (Gender)this.EditGender.SelectedValue
-                }
-            };
-            var response = await APIHandle.Edit_General_Infor(account);
-            var responseContent = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode == HttpStatusCode.OK) {
-                var dialog = new ContentDialog()
-                {
-                    Title = "Success!",
-                    MaxWidth = this.ActualWidth,
-                    Content = "You have edited your general Information",
-                    CloseButtonText = "OK!"
-                };
+                this.Error.Text = "You have to fill in all the fields.";
+                val = false;
             }
+            return val;
+        }
+
+        public async void BtnSave(object sender, RoutedEventArgs e)
+        {
+            if (Validate_Edit())
+            {
+                Entities.Account account = new Entities.Account()
+                {
+                    id = GlobalVariable.AccountId,
+                    email = this.EditEmail.Text,
+                    password = this.EditPassword.Password,
+                    generalInformation = new Entities.GeneralInformation()
+                    {
+                        firstName = this.EditFirstName.Text,
+                        lastName = this.EditLastName.Text,
+                        phone = this.EditPhone.Text,
+                    }
+                };
+                var response = await APIHandle.Edit_General_Infor(account);
+                var responseContent = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine(responseContent);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    this.Error.Text = "";
+                    var dialog = new ContentDialog()
+                    {
+                        Title = "Success!",
+                        MaxWidth = this.ActualWidth,
+                        Content = "You have edited your general Information",
+                        CloseButtonText = "OK!"
+                    };
+                }
+                else
+                {
+                    ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
+
+                    if (errorObject != null)
+                    {
+                        this.Error.Text = errorObject.message;
+                    }                    
+                }
+            }            
         }
     }
 }

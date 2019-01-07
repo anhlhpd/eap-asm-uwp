@@ -49,15 +49,19 @@ namespace Client.Views
                     .OfType<NavigationViewItem>()
                     .First(n => n.Tag.Equals("GeneralInformation"));
             NavView.IsPaneOpen = false;
+            //NavView.IsBackEnabled = Frame.CanGoBack;
 
-            //var altLeft = new KeyboardAccelerator
-            //{
-            //    Key = VirtualKey.Left,
-            //    Modifiers = VirtualKeyModifiers.Menu
-            //};
-            //this.KeyboardAccelerators.Add(altLeft);
+            var goBack = new KeyboardAccelerator { Key = VirtualKey.GoBack };
+            goBack.Invoked += BackInvoked;
+            this.KeyboardAccelerators.Add(goBack);
+            var altLeft = new KeyboardAccelerator
+            {
+                Key = VirtualKey.Left,
+                Modifiers = VirtualKeyModifiers.Menu
+            };
+            altLeft.Invoked += BackInvoked;
+            this.KeyboardAccelerators.Add(altLeft);
         }
-
 
         private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
@@ -75,6 +79,7 @@ namespace Client.Views
                     .Tag.ToString();
 
                 NavView_Navigate(navItemTag);
+                //NavView.Header = navItemTag;
             }
         }
 
@@ -92,7 +97,7 @@ namespace Client.Views
 
         private void On_Navigated(object sender, NavigationEventArgs e)
         {
-            //NavView.IsBackEnabled = ContentFrame.CanGoBack;
+            NavView.IsBackEnabled = ContentFrame.CanGoBack;
             //Debug.WriteLine(ContentFrame.SourcePageType);
             if (ContentFrame.SourcePageType == typeof(SettingsPage))
             {
@@ -107,6 +112,29 @@ namespace Client.Views
                     .OfType<NavigationViewItem>()
                     .First(n => n.Tag.Equals(item.Tag));
             }
+        }
+
+        private void NavView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args) => On_BackRequested();
+
+        private void BackInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            On_BackRequested();
+            args.Handled = true;
+        }
+
+        private bool On_BackRequested()
+        {
+            if (!ContentFrame.CanGoBack)
+                return false;
+
+            // Don't go back if the nav pane is overlayed
+            if (NavView.IsPaneOpen &&
+                (NavView.DisplayMode == NavigationViewDisplayMode.Compact ||
+                NavView.DisplayMode == NavigationViewDisplayMode.Minimal))
+                return false;
+
+            ContentFrame.GoBack();
+            return true;
         }
     }
 }

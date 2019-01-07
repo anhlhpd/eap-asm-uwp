@@ -69,7 +69,6 @@ namespace Client.Views
 
         private async void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(1);
             if (Validate_Login() == true)
             {
                 var response = await APIHandle.Sign_In(this.Username.Text, this.Password.Password);
@@ -85,12 +84,12 @@ namespace Client.Views
                     this.Frame.Navigate(typeof(Views.NavigationView));
                 }
                 else
-                {   
+                {
                     ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
                     
                     if (errorObject != null)
                     {
-                        Debug.WriteLine(errorObject.message);
+                        this.error.Text = errorObject.message;
                     }
                 }
             }
