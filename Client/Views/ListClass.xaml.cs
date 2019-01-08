@@ -28,8 +28,10 @@ namespace Client.Views
         private async void Get_List_Clazz()
         {
             this.listAllClazzes = new ObservableCollection<Entities.Clazz>();
-            var response = await APIHandle.Get_Subjects();
+            var response = await APIHandle.Get_Clazzes();
             var responseContent = await response.Content.ReadAsStringAsync();
+            Debug.WriteLine(response);
+            Debug.WriteLine("1");
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var array = JArray.Parse(responseContent);
@@ -63,6 +65,7 @@ namespace Client.Views
             StackPanel sp = sender as StackPanel;
             Entities.Clazz clazz = sp.Tag as Entities.Clazz;
             GlobalVariable.CurrentClazzId = clazz.id;
+            Debug.WriteLine(GlobalVariable.CurrentClazzId);
             this.Frame.Navigate(typeof(Clazz));
         }
     }

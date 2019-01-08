@@ -46,7 +46,6 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center" Text="SUBJECT" VerticalAlignment="Top"
                    x:Name="Header" Height="56" Width="180" FontSize="35"/>
-        <Button x:Name="BackButton" Click="Back_Click" VerticalAlignment="Top" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
         <ScrollViewer>
             <Grid>
                 <Grid.Resources>
