@@ -12,5 +12,7 @@ namespace Client.Entities
         public static string CurrentSubjectName { get; set; }
         public static string CurrentClazzId { get; set; }
         public static string AccountId { get; set; }
+
+        public static string CurrentFrame { get; set; }
     }
 }

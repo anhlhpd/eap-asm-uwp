@@ -76,6 +76,7 @@ namespace Client.Views
             Debug.WriteLine("end tap");
             this.Frame.Navigate(typeof(Mark));
             Debug.WriteLine("end nav");
+            
         }
 
         private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)

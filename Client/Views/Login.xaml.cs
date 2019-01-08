@@ -71,24 +71,30 @@ namespace Client.Views
         {
             if (Validate_Login() == true)
             {
+                Debug.WriteLine("o");
                 var response = await APIHandle.Sign_In(this.Username.Text, this.Password.Password);
                 var responseContent = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine(response);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
+                    Debug.WriteLine("1");
                     Debug.WriteLine(responseContent);
                     string token = responseContent;
 
                     StorageFolder folder = ApplicationData.Current.LocalFolder;
                     StorageFile file = await folder.CreateFileAsync("token.txt", CreationCollisionOption.ReplaceExisting);
+                    Debug.WriteLine("2");
                     await FileIO.WriteTextAsync(file, responseContent);                    
                     this.Frame.Navigate(typeof(Views.NavigationView));
+                    Debug.WriteLine("OK");
                 }
                 else
                 {
                     ErrorResponse errorObject = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
-                    
+                    Debug.WriteLine("a");
                     if (errorObject != null)
                     {
+                        Debug.WriteLine("z");
                         this.error.Text = errorObject.message;
                     }
                 }

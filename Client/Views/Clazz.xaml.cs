@@ -34,6 +34,8 @@ namespace Client.Views
         public Clazz()
         {
             this.InitializeComponent();
+            GlobalVariable.CurrentFrame = "Class";
+            Get_List_Students();
         }
         private async void Get_List_Students()
         {

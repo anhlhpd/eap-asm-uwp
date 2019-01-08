@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.System;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -16,6 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Client.Entities;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,116 +28,75 @@ namespace Client.Views
     /// </summary>
     public sealed partial class NavigationView : Page
     {
-        private Type currentPage;
-        
-        private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
-            {
-                ("GeneralInformation", typeof(GeneralInformation)),
-                ("ListClass", typeof(ListClass)),
-                ("ListSubject", typeof(ListSubject))
-            };
-
-
-        public NavigationView()
+       public NavigationView()
         {
             this.InitializeComponent();
         }
 
-        private void NavView_Loaded(object sender, RoutedEventArgs e)
+        private void TogglePanelEvent(object sender, TappedRoutedEventArgs e)
         {
-            ContentFrame.Navigated += On_Navigated;
-            NavView_Navigate("GeneralInformation");
-            NavView.SelectedItem = NavView.MenuItems
-                    .OfType<NavigationViewItem>()
-                    .First(n => n.Tag.Equals("GeneralInformation"));
-            NavView.IsPaneOpen = false;
-            //NavView.IsBackEnabled = Frame.CanGoBack;
+            PaneSplitView.IsPaneOpen = !this.PaneSplitView.IsPaneOpen;
+        }
 
-            var goBack = new KeyboardAccelerator { Key = VirtualKey.GoBack };
-            goBack.Invoked += BackInvoked;
-            this.KeyboardAccelerators.Add(goBack);
-            var altLeft = new KeyboardAccelerator
+        private async void LogoutHandle(object sender, TappedRoutedEventArgs e)
+        {
+            ContentDialog deleteFileDialog = new ContentDialog
             {
-                Key = VirtualKey.Left,
-                Modifiers = VirtualKeyModifiers.Menu
+                Title = "Warning!",
+                Content = "Do you want to log out?",
+                PrimaryButtonText = "Log out",
+                CloseButtonText = "Cancel"
             };
-            altLeft.Invoked += BackInvoked;
-            this.KeyboardAccelerators.Add(altLeft);
-        }
 
-        private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, NavigationViewItemInvokedEventArgs args)
-        {
-            if (args.InvokedItem == null)
-                return;
+            ContentDialogResult result = await deleteFileDialog.ShowAsync();
 
-            if (args.IsSettingsInvoked)
-                ContentFrame.Navigate(typeof(SettingsPage));
-            else
+            // Delete the file if the user clicked the primary button.
+            /// Otherwise, do nothing.
+            if (result == ContentDialogResult.Primary)
             {
-                // Getting the Tag from Content (args.InvokedItem is the content of NavigationViewItem)
-                var navItemTag = NavView.MenuItems
-                    .OfType<NavigationViewItem>()
-                    .First(i => args.InvokedItem.Equals(i.Content))
-                    .Tag.ToString();
+                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                StorageFile file = await storageFolder.GetFileAsync("token.txt");
+                await file.DeleteAsync(StorageDeleteOption.PermanentDelete);
 
-                NavView_Navigate(navItemTag);
-            }
-        }
-
-        private void NavView_Navigate(string navItemTag)
-        {
-            var item = _pages.First(p => p.Tag.Equals(navItemTag));
-            if (currentPage == item.Page)
-                return;
-            ContentFrame.Navigate(item.Page);
-
-            currentPage = item.Page;
-        }
-
-        private void NavView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args) => On_BackRequested();
-
-        private void BackInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
-        {
-            On_BackRequested();
-            args.Handled = true;
-        }
-
-        private bool On_BackRequested()
-        {
-            if (!ContentFrame.CanGoBack)
-                return false;
-
-            // Don't go back if the nav pane is overlayed
-            if (NavView.IsPaneOpen &&
-                (NavView.DisplayMode == NavigationViewDisplayMode.Compact ||
-                NavView.DisplayMode == NavigationViewDisplayMode.Minimal))
-                return false;
-
-            ContentFrame.GoBack();
-            return true;
-        }
-
-        private void On_Navigated(object sender, NavigationEventArgs e)
-        {
-            NavView.IsBackEnabled = ContentFrame.CanGoBack;
-            //Debug.WriteLine(ContentFrame.SourcePageType);
-            if (ContentFrame.SourcePageType == typeof(SettingsPage))
-            {
-                // SettingsItem is not part of NavView.MenuItems, and doesn't have a Tag
-                NavView.SelectedItem = (NavigationViewItem)NavView.SettingsItem;
+                
+                this.Frame.Navigate(typeof(Views.Login));
             }
             else
             {
-                var item = _pages.First(p => p.Page == e.SourcePageType);
+                // The user clicked the CLoseButton, pressed ESC, Gamepad B, or the system back button.
+                // Do nothing.
+            }
+            
+        }
 
-                NavView.SelectedItem = NavView.MenuItems
-                    .OfType<NavigationViewItem>()
-                    .First(n => n.Tag.Equals(item.Tag));
+        private void InfomationHandle(object sender, RoutedEventArgs e)
+        {
+            PageContent.Navigate(typeof(Views.GeneralInformation));
+        }
+
+        private void SubjectHandle(object sender, RoutedEventArgs e)
+        {
+            PageContent.Navigate(typeof(Views.ListSubject));
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            if (GlobalVariable.CurrentFrame == "Mark")
+            {
+                PageContent.Navigate(typeof(Views.ListSubject));
+                GlobalVariable.CurrentFrame = null;
+            }
+            if (GlobalVariable.CurrentFrame == "Class")
+            {
+                PageContent.Navigate(typeof(Views.ListClass));
+                GlobalVariable.CurrentFrame = null;
             }
         }
-        private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
+
+        private void ClassHandle(object sender, RoutedEventArgs e)
         {
-            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+            PageContent.Navigate(typeof(Views.ListClass));
         }
     }
+
 }

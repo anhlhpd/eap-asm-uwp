@@ -11,54 +11,64 @@
     xmlns:Windows10version1803="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 6)"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger Windows10FallCreatorsUpdate:MinWindowWidth="{x:Bind NavView.CompactModeThresholdWidth}" />
-                    </VisualState.StateTriggers>
+    <Grid x:Name="Hung">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <SplitView Grid.Column="0" x:Name="PaneSplitView" IsPaneOpen="False"
+            DisplayMode="CompactOverlay"
+            OpenPaneLength ="250"
+            CompactPaneLength="44"
+         >
+            <SplitView.Pane>
+                <RelativePanel x:Name="MenuPane" Margin="3,50,0,0">
+                    <Button x:Name="BackButton" Click="Back_Click" VerticalAlignment="Top" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+                    <RadioButton RelativePanel.Below="BackButton" x:Name="toggleLabel" Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon x:Name="TogglePanel" Symbol="GlobalNavigationButton" Margin="0,0,15,0" Tapped="TogglePanelEvent"/>
+                            <!--<TextBlock Text="Hello" FontSize="24"/>-->
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton x:Name="homeLabel" RelativePanel.Below="toggleLabel" Style="{ThemeResource TextBlockButtonStyle}" >
+                        <StackPanel Orientation="Horizontal" >
+                            <SymbolIcon x:Name="HomeSymbol" Symbol="Home" Margin="0,0,15,0"/>
+                            <TextBlock Text="Home" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Click="ClassHandle" x:Name="classLabel" RelativePanel.Below="homeLabel" Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel Orientation="Horizontal" >
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF5ED;" Margin="0,0,15,0" />
+                            <TextBlock Text="Class" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Click="SubjectHandle" x:Name="subjectLabel" RelativePanel.Below="classLabel"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel   Orientation="Horizontal" >
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF57E;" Margin="0,0,15,0" />
+                            <TextBlock x:Name="subjectName" Text="Subject" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Click="InfomationHandle" x:Name="accountLabel" RelativePanel.Below="subjectLabel"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel   Orientation="Horizontal" >
+                            <SymbolIcon x:Name="AccountSymbol" Symbol="Contact" Margin="0,0,15,0"/>
+                            <TextBlock x:Name="AccountName" Text="Account" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
 
-                    <VisualState.Setters>
-                        <Setter Target="NavView.PaneDisplayMode" Value="Top"/>
-                        <!-- Remove the next 3 lines for left-only navigation. -->
-                        <Setter Target="NavView.PaneDisplayMode" Value="Top"/>
-                        <Setter Target="NavViewSearchBox.Width" Value="200"/>
-                        <Setter Target="MainPagesHeader.Visibility" Value="Collapsed"/>
-                        <!-- Leave the next line for left-only navigation. -->
-                        <Setter Target="ContentFrame.Padding" Value="24,0,24,24"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+                    <RadioButton Visibility="Visible" x:Name="signOutLabel" RelativePanel.AlignBottomWithPanel="True" VerticalAlignment="Bottom"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel  Orientation="Horizontal" Tapped="LogoutHandle">
+                            <SymbolIcon x:Name="SignOutSymbol" Symbol="NewWindow" Margin="0,0,15,0"/>
+                            <TextBlock  x:Name="SignOut" Text="SignOut" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                </RelativePanel>
 
-        <Windows10FallCreatorsUpdate:NavigationView x:Name="NavView"
-            CompactModeThresholdWidth="280" ExpandedModeThresholdWidth="2500"
-                Loaded="NavView_Loaded" ItemInvoked="NavView_ItemInvoked"
-                     IsSettingsVisible="True" 
-                        OpenPaneLength="300" IsPaneOpen="True">
-            
-            <NavigationView.MenuItems>
-                <!--<Button Style="{StaticResource NavigationBackButtonNormalStyle}"/>-->
-                <NavigationViewItemHeader x:Name="MainPagesHeader"
-                                           Content="Main pages"/>
-                <NavigationViewItem Content="List Class" x:Name="ListClass"
-                                    Tag="ListClass" Icon="Calendar" />
-                <NavigationViewItem Content="List Subject" x:Name="ListSubject"
-                                    Tag="ListSubject" Icon="Page2" />
-                <NavigationViewItem Content="General Information" x:Name="GeneralInformation"
-                                    Tag="GeneralInformation" Icon="Contact" />
-            </NavigationView.MenuItems>
 
-            <Frame x:Name="ContentFrame" IsTabStop="True" NavigationFailed="ContentFrame_NavigationFailed">
-                
-                <Frame.ContentTransitions>
-                    <TransitionCollection>
-                        <NavigationThemeTransition/>
-                    </TransitionCollection>
-                </Frame.ContentTransitions>
-            </Frame>
-        </Windows10FallCreatorsUpdate:NavigationView>
+            </SplitView.Pane>
+
+            <SplitView.Content>
+                <Frame x:Name="PageContent"/>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>
