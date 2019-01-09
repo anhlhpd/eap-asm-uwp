@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="Client.Views.GeneralInformation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Client.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="179*"/>
+            <RowDefinition Height="141*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <SolidColorBrush x:Key="BlueColor" Color="#FFB5E5F8"></SolidColorBrush>
+        </Grid.Resources>
+        <Grid x:Name="RootGrid" Margin="0,10,0,12" Grid.RowSpan="2" Background="#FFE2EEF6">
+            <ScrollViewer HorizontalAlignment="Stretch" Margin="0,55,0,0" VerticalAlignment="Stretch">
+            <Pivot Width="1017" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Padding="30,20,0,0" Margin="0,0,0,0">
+                <PivotItem Header="Show" Margin="0,10,7.33,0" VerticalAlignment="Top" FontSize="20" Padding="0,30,0,0">
+                    <StackPanel Orientation="Vertical" Margin="00,0,0,17.333" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="910">
+                        <TextBlock Text="Email:" VerticalAlignment="Center" FontSize="20px" Height="34" Margin="0,0,119.67,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                        <TextBlock x:Name="Email" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock Text="FirstName:" FontSize="20px" Height="31" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1066" FontWeight="Bold" FontFamily="Chinacat" Margin="0,0,0,0"/>
+                        <TextBlock x:Name="FirstName" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock Text="LastName:" VerticalAlignment="Center" FontSize="20px" Height="31" Margin="0,0,-2,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                        <TextBlock x:Name="LastName" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock Text="Birthday:" VerticalAlignment="Center" FontSize="20px" Height="31" FontWeight="Bold" FontFamily="Chinacat"/>
+                        <TextBlock x:Name="Birthday" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock Text="Phone:" VerticalAlignment="Center" FontSize="20px" Height="31" Margin="0,0,10,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                        <TextBlock x:Name="Phone" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <Button Content="Log Out" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="70,0,150.67,0" Click="BtnLogout"/>
+                    </StackPanel>
+                </PivotItem>
+                <PivotItem Header="Edit" Margin="0,10,7.33,0" VerticalAlignment="Top" FontSize="20" Padding="0,30,0,0">
+                    <StackPanel Orientation="Vertical" Margin="00,0,0,17.333" HorizontalAlignment="Stretch">
+                        <TextBlock Text="Email:" VerticalAlignment="Center" FontSize="20px" Height="34" Margin="0,0,120,0" FontWeight="Bold" FontFamily="Chinacat" HorizontalAlignment="Stretch"/>
+                        <TextBox x:Name="EditEmail"  Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock Text="Password:" VerticalAlignment="Center" FontSize="20px" Height="34" Margin="0,0,119.67,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                        <PasswordBox x:Name="EditPassword" Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock Text="FirstName:" FontSize="20px" Height="31" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1066" FontWeight="Bold" FontFamily="Chinacat" Margin="0,0,0,0"/>
+                        <TextBox x:Name="EditFirstName" Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock Text="LastName:" VerticalAlignment="Center" FontSize="20px" Height="31" Margin="0,0,-2,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                        <TextBox x:Name="EditLastName" Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock Text="Phone:" VerticalAlignment="Center" FontSize="20px" Height="31" Margin="0,0,10,0" FontWeight="Bold" FontFamily="Chinacat"/>
+                        <TextBox x:Name="EditPhone" Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Margin="40,0,0,5"/>
+                        <TextBlock x:Name="Error" Foreground="Red" FontSize="15"></TextBlock>
+                        <Button Content="Save" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="70,0,150.67,0" Click="BtnSave"/>
+                    </StackPanel>
+                </PivotItem>
+            </Pivot>
+            </ScrollViewer>
+            <TextBlock HorizontalAlignment="Center" Text="YOUR GENERAL INFORMATIONS" VerticalAlignment="Top" Height="56" Width="576" FontSize="35"/>            
+        </Grid>
+    </Grid>
+</Page>

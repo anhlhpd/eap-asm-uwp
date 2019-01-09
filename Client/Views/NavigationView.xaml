@@ -1,0 +1,74 @@
+﻿<Page
+    x:Class="Client.Views.NavigationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    xmlns:Windows10FallCreatorsUpdate="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 5)"
+    xmlns:Windows10version1803="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 6)"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="Hung">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <SplitView Grid.Column="0" x:Name="PaneSplitView" IsPaneOpen="False"
+            DisplayMode="CompactOverlay"
+            OpenPaneLength ="250"
+            CompactPaneLength="44"
+         >
+            <SplitView.Pane>
+                <RelativePanel x:Name="MenuPane" Margin="3,50,0,0">
+                    <Button x:Name="BackButton" Click="Back_Click" VerticalAlignment="Top" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+                    <RadioButton RelativePanel.Below="BackButton" x:Name="toggleLabel" Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon x:Name="TogglePanel" Symbol="GlobalNavigationButton" Margin="0,0,15,0" Tapped="TogglePanelEvent"/>
+                            <!--<TextBlock Text="Hello" FontSize="24"/>-->
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton x:Name="homeLabel" RelativePanel.Below="toggleLabel" Style="{ThemeResource TextBlockButtonStyle}" >
+                        <StackPanel Orientation="Horizontal" >
+                            <SymbolIcon x:Name="HomeSymbol" Symbol="Home" Margin="0,0,15,0"/>
+                            <TextBlock Text="Home" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Click="ClassHandle" x:Name="classLabel" RelativePanel.Below="homeLabel" Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel Orientation="Horizontal" >
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF5ED;" Margin="0,0,15,0" />
+                            <TextBlock Text="Class" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Click="SubjectHandle" x:Name="subjectLabel" RelativePanel.Below="classLabel"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel   Orientation="Horizontal" >
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF57E;" Margin="0,0,15,0" />
+                            <TextBlock x:Name="subjectName" Text="Subject" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Click="InfomationHandle" x:Name="accountLabel" RelativePanel.Below="subjectLabel"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel   Orientation="Horizontal" >
+                            <SymbolIcon x:Name="AccountSymbol" Symbol="Contact" Margin="0,0,15,0"/>
+                            <TextBlock x:Name="AccountName" Text="Account" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Visibility="Visible" x:Name="signOutLabel" RelativePanel.AlignBottomWithPanel="True" VerticalAlignment="Bottom"  Style="{ThemeResource TextBlockButtonStyle}">
+                        <StackPanel  Orientation="Horizontal" Tapped="LogoutHandle">
+                            <SymbolIcon x:Name="SignOutSymbol" Symbol="NewWindow" Margin="0,0,15,0"/>
+                            <TextBlock  x:Name="SignOut" Text="SignOut" FontSize="24"/>
+                        </StackPanel>
+                    </RadioButton>
+                </RelativePanel>
+
+
+            </SplitView.Pane>
+
+            <SplitView.Content>
+                <Frame x:Name="PageContent"/>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>

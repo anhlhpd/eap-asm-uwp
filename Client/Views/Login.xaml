@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="Client.Views.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Client.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loading="Login_OnLoading">
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="1200"></AdaptiveTrigger>
+                        <AdaptiveTrigger MinWindowWidth="800"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <ScrollViewer>
+            <StackPanel x:Name="ParentStackPanel" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="FPT Student App" TextAlignment="Center" FontSize="35px"/>
+
+                <RelativePanel>
+                    <TextBox x:Name="Username" Header="Username" Margin="0, 30, 0, 0"
+                             HorizontalAlignment="Center" Text="" VerticalAlignment="Top" Width="293"/>
+                    <TextBlock x:Name="username" RelativePanel.Below="Username" Foreground="Red"></TextBlock>
+                </RelativePanel>
+
+                <RelativePanel>
+                    <PasswordBox x:Name="Password" Header="Password" Margin="0, 30, 0, 0"
+                                 Width="293" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="password" RelativePanel.Below="Password" Foreground="Red"></TextBlock>
+                </RelativePanel>
+
+                <RelativePanel HorizontalAlignment="Center" Margin="0, 30, 0, 0">
+                    <TextBlock x:Name="error" Foreground="Red"></TextBlock>
+                    <Button x:Name="BtnLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BtnLogin_Click"/>
+                </RelativePanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
